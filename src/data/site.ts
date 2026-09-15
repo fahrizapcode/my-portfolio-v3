@@ -86,3 +86,18 @@ export const githubRepos = [
     updated: 'Updated 3 months ago',
   },
 ]
+
+export const certifications = [
+  {
+    title: 'Full Stack Web Development',
+    issuer: 'Dicoding Indonesia',
+    date: '2024',
+    detail: 'Comprehensive learning path covering frontend fundamentals to backend API development.',
+  },
+  {
+    title: 'Blockchain Developer Bootcamp',
+    issuer: 'Web3 Foundation',
+    date: '2024',
+    detail: 'Smart contract development, decentralized architecture, and Web3 integration.',
+  },
+]

@@ -1,4 +1,5 @@
 import { About } from '../components/About'
+import { Certifications } from '../components/Certifications'
 import { Contact } from '../components/Contact'
 import { ExperienceTimeline } from '../components/ExperienceTimeline'
 import { GitHub } from '../components/GitHub'
@@ -14,6 +15,7 @@ export function Home() {
       <ProjectGrid />
       <Skills />
       <ExperienceTimeline />
+      <Certifications />
       <Philosophy />
       <About />
       <GitHub />

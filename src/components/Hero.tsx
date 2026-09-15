@@ -39,10 +39,10 @@ export function Hero() {
               I build web applications across the frontend, backend, and Web3 stack —
               from product interfaces and APIs to blockchain integrations.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm text-cream transition-opacity hover:opacity-80"
+                className="relative inline-flex items-center gap-2 rounded-full bg-black/40 px-6 py-3 text-sm text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] ring-1 ring-white/20 backdrop-blur-md transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:ring-white/40"
               >
                 View Projects
                 <ArrowIcon className="size-3.5" />
@@ -51,7 +51,7 @@ export function Hero() {
                 href={site.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-5 py-2.5 text-sm text-ink transition-colors hover:border-ink/40"
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-6 py-3 text-sm text-ink transition-colors hover:border-ink/40"
               >
                 <GitHubIcon className="size-4" />
                 GitHub

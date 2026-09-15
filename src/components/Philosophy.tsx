@@ -19,21 +19,30 @@ const principles = [
 
 export function Philosophy() {
   return (
-    <section className="px-4 py-16 md:px-6">
-      <div className="mx-auto max-w-[1100px]">
-        <p className="font-mono text-xs tracking-widest text-muted">06</p>
-        <h2 className="mt-3 font-serif text-4xl tracking-tight md:text-5xl">
-          How I build
-        </h2>
-        <div className="mt-10 grid gap-3 md:grid-cols-2">
+    <section className="px-3 py-16 sm:px-4 md:px-6 md:py-20">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="mb-10 md:mb-14" data-reveal>
+          <p className="font-mono text-[11px] tracking-widest text-muted uppercase">
+            Approach
+          </p>
+          <h2 className="mt-3 font-serif text-4xl tracking-tight md:text-5xl">
+            How I build
+          </h2>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2" data-reveal>
           {principles.map((item, index) => (
             <article
               key={item.title}
-              className="rounded-[24px] border border-line bg-paper p-6"
+              className="rounded-[24px] border border-line bg-paper p-6 sm:p-7"
             >
-              <p className="font-mono text-xs text-muted">0{index + 1}</p>
-              <h3 className="mt-3 font-serif text-2xl">{item.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted">{item.body}</p>
+              <p className="font-mono text-[10px] tracking-widest text-muted">
+                0{index + 1}
+              </p>
+              <h3 className="mt-4 font-serif text-2xl leading-tight">
+                {item.title}
+              </h3>
+              <p className="mt-3 leading-relaxed text-ink/70">{item.body}</p>
             </article>
           ))}
         </div>

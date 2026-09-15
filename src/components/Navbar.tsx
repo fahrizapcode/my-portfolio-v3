@@ -1,25 +1,42 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks, site } from '../data/site'
 import { GitHubIcon } from './icons'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const home = location.pathname === '/'
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => setOpen(false), [location.pathname])
+
   return (
-    <header className="sticky top-0 z-40 border-b border-line/70 bg-cream/90 backdrop-blur-md supports-[backdrop-filter]:bg-cream/75">
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? 'border-b border-line/60 bg-cream/95 shadow-[0_1px_12px_rgba(22,21,19,0.06)] backdrop-blur-md'
+          : 'border-b border-transparent bg-cream/0'
+      }`}
+    >
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-6">
         <Link
           to="/"
-          className="font-serif text-xl tracking-tight text-ink"
+          className="font-serif text-xl tracking-tight text-ink transition-opacity hover:opacity-70"
           onClick={() => setOpen(false)}
         >
           {site.name}
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -33,39 +50,48 @@ export function Navbar() {
             href={site.github}
             target="_blank"
             rel="noreferrer"
-            className="text-ink"
-            aria-label="GitHub"
+            className="ml-1 text-ink/70 transition-colors hover:text-ink"
+            aria-label="GitHub profile"
           >
-            <GitHubIcon className="size-5" />
+            <GitHubIcon className="size-[18px]" />
           </a>
         </nav>
 
+        {/* Mobile menu button */}
         <button
           type="button"
-          className="flex size-10 items-center justify-center rounded-full border border-line md:hidden"
+          className="flex size-9 items-center justify-center rounded-full border border-line bg-paper transition-colors hover:bg-cream md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
-          onClick={() => setOpen((value) => !value)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen((v) => !v)}
         >
-          <span className="sr-only">Menu</span>
-          <span className="flex w-4 flex-col gap-1.5">
-            <span className={`h-px bg-ink transition ${open ? 'translate-y-[4px] rotate-45' : ''}`} />
-            <span className={`h-px bg-ink transition ${open ? '-translate-y-[4px] -rotate-45' : ''}`} />
+          <span className="flex w-[14px] flex-col gap-[5px]">
+            <span
+              className={`h-px bg-ink transition-all duration-200 ${open ? 'translate-y-[7px] rotate-45' : ''}`}
+            />
+            <span
+              className={`h-px bg-ink transition-all duration-200 ${open ? 'opacity-0' : ''}`}
+            />
+            <span
+              className={`h-px bg-ink transition-all duration-200 ${open ? '-translate-y-[7px] -rotate-45' : ''}`}
+            />
           </span>
         </button>
       </div>
 
-      {open ? (
+      {/* Mobile menu */}
+      {open && (
         <div
           id="mobile-nav"
-          className="border-t border-line px-4 py-4 md:hidden"
+          className="animate-slide-down border-t border-line bg-cream/98 px-4 pb-5 pt-4 md:hidden"
         >
-          <nav className="flex flex-col gap-3" aria-label="Mobile">
+          <nav className="flex flex-col" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={home ? link.href.replace('/', '') : link.href}
-                className="py-1 text-base text-ink"
+                className="border-b border-line/60 py-3 text-base text-ink"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -75,14 +101,15 @@ export function Navbar() {
               href={site.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 py-1 text-ink"
+              className="mt-3 inline-flex items-center gap-2 text-sm text-muted"
+              onClick={() => setOpen(false)}
             >
               <GitHubIcon className="size-4" />
               GitHub
             </a>
           </nav>
         </div>
-      ) : null}
+      )}
     </header>
   )
 }

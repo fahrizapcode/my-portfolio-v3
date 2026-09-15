@@ -4,6 +4,27 @@ import { CornerMark } from './CornerMark'
 import { ArrowIcon } from './icons'
 import { featuredMockupId, ProjectMockup } from './ProjectMockups'
 
+const accentBg: Record<Project['accent'], string> = {
+  lavender: 'bg-lavender/20',
+  mint: 'bg-mint/25',
+  gold: 'bg-gold/25',
+  night: 'bg-charcoal/10',
+}
+
+const accentBorder: Record<Project['accent'], string> = {
+  lavender: 'border-lavender/50',
+  mint: 'border-mint/50',
+  gold: 'border-gold/50',
+  night: 'border-charcoal/30',
+}
+
+const accentTag: Record<Project['accent'], string> = {
+  lavender: 'bg-lavender/30 text-ink/70',
+  mint: 'bg-mint/40 text-ink/70',
+  gold: 'bg-gold/35 text-ink/70',
+  night: 'bg-charcoal/10 text-ink/70',
+}
+
 export function ProjectCard({
   project,
   index,
@@ -14,38 +35,55 @@ export function ProjectCard({
   const reverse = index % 2 === 1
 
   return (
-    <article className="grid items-stretch gap-4 lg:grid-cols-12 lg:gap-6">
+    <article
+      className="grid items-stretch gap-4 lg:grid-cols-12 lg:gap-5"
+      data-reveal
+    >
+      {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`relative min-h-[260px] overflow-hidden rounded-[28px] bg-paper p-3 transition duration-300 hover:scale-[1.01] sm:min-h-[340px] lg:col-span-7 ${
+        className={`group relative min-h-[260px] overflow-hidden rounded-[28px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${accentBg[project.accent]} ${
           reverse ? 'lg:order-2' : ''
         }`}
       >
         <CornerMark />
         <ProjectMockup id={featuredMockupId(project.slug)} className="h-full" />
+        {/* Hover overlay hint */}
+        <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/80 px-3 py-1.5 text-[11px] text-cream backdrop-blur-sm">
+            View case study
+            <ArrowIcon className="size-3" />
+          </span>
+        </div>
       </Link>
 
+      {/* Info panel */}
       <div
-        className={`flex flex-col justify-between rounded-[28px] border border-line bg-paper p-6 sm:p-8 lg:col-span-5 ${
+        className={`flex flex-col justify-between rounded-[28px] border bg-paper p-6 sm:p-8 lg:col-span-5 ${accentBorder[project.accent]} ${
           reverse ? 'lg:order-1' : ''
         }`}
       >
         <div>
-          <p className="font-mono text-xs tracking-widest text-muted">
-            {project.number}
-          </p>
-          <h3 className="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">
+          <div className="flex items-center justify-between">
+            <p className="font-mono text-[11px] tracking-widest text-muted">
+              {project.number}
+            </p>
+            <p className="text-[11px] tracking-wide text-muted">{project.type}</p>
+          </div>
+
+          <h3 className="mt-4 font-serif text-[40px] leading-[1.0] tracking-tight sm:text-[48px]">
             {project.name}
           </h3>
-          <p className="mt-2 text-sm text-muted">{project.type}</p>
-          <p className="mt-5 text-[15px] leading-relaxed text-ink/80">
+
+          <p className="mt-4 text-[15px] leading-relaxed text-ink/75">
             {project.summary}
           </p>
-          <ul className="mt-6 flex flex-wrap gap-2">
+
+          <ul className="mt-5 flex flex-wrap gap-1.5">
             {project.stack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full border border-line px-3 py-1 text-xs text-muted"
+                className={`rounded-full px-3 py-1 text-[12px] ${accentTag[project.accent]}`}
               >
                 {tech}
               </li>
@@ -53,13 +91,14 @@ export function ProjectCard({
           </ul>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        {/* Links */}
+        <div className="mt-8 flex flex-wrap gap-4">
           {project.links.map((link) =>
             link.href.startsWith('/') ? (
               <Link
                 key={link.label}
                 to={link.href}
-                className="inline-flex items-center gap-1.5 text-sm text-ink"
+                className="inline-flex items-center gap-1.5 text-sm text-ink transition-opacity hover:opacity-60"
               >
                 {link.label}
                 <ArrowIcon className="size-3.5" />
@@ -70,7 +109,7 @@ export function ProjectCard({
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-ink"
+                className="inline-flex items-center gap-1.5 text-sm text-ink transition-opacity hover:opacity-60"
               >
                 {link.label}
                 <ArrowIcon className="size-3.5" />

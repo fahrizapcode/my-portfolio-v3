@@ -1,4 +1,5 @@
 import { skills } from '../data/site'
+import { techIconMap } from './TechMarquee'
 
 const categoryAccent: Record<string, string> = {
   Frontend: 'bg-lavender/35',
@@ -34,15 +35,19 @@ export function Skills() {
                 {group}
               </p>
               <ul className="mt-2 flex flex-wrap gap-1.5">
-                {items.map((item) => (
-                  <li key={item}>
-                    <span
-                      className={`inline-block rounded-full px-2.5 py-1 text-xs sm:text-sm text-ink/80 ${categoryAccent[group] ?? 'bg-paper border border-line'}`}
-                    >
-                      {item}
-                    </span>
-                  </li>
-                ))}
+                {items.map((item) => {
+                  const IconComp = techIconMap[item]
+                  return (
+                    <li key={item}>
+                      <span
+                        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs sm:text-sm text-ink/80 ${categoryAccent[group] ?? 'bg-paper border border-line'}`}
+                      >
+                        {IconComp ? <IconComp className="size-3.5 shrink-0 sm:size-4" /> : null}
+                        <span>{item}</span>
+                      </span>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}

@@ -199,6 +199,56 @@ export function DockerIcon({ className = 'size-5' }: { className?: string }) {
   )
 }
 
+export function FastAPIIcon({ className = 'size-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 128 128" className={className} fill="none">
+      <rect width="128" height="128" rx="20" fill="#059669" />
+      <path d="M72 16L32 72h32l-8 40 40-56H64l8-40z" fill="#FFFFFF" />
+    </svg>
+  )
+}
+
+export function PostgresIcon({ className = 'size-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 128 128" className={className} fill="none">
+      <rect width="128" height="128" rx="20" fill="#336791" />
+      <path d="M64 24c-20 0-32 16-32 36 0 24 16 44 32 44s32-20 32-44c0-20-12-36-32-36zm0 14c12 0 18 10 18 22s-6 26-18 26-18-14-18-26 6-22 18-22z" fill="#FFFFFF" fillOpacity="0.3" />
+      <path d="M64 42c8 0 12 6 12 14s-4 18-12 18-12-10-12-18 4-14 12-14z" fill="#FFFFFF" />
+    </svg>
+  )
+}
+
+export function EthersIcon({ className = 'size-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 128 128" className={className} fill="none">
+      <rect width="128" height="128" rx="20" fill="#254B8C" />
+      <path d="M40 36h48v16H56v12h28v16H56v12h32v16H40V36z" fill="#FFFFFF" />
+    </svg>
+  )
+}
+
+export const techIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  'React': ReactIcon,
+  'Next.js': NextjsIcon,
+  'TypeScript': TypeScriptIcon,
+  'JavaScript': JavaScriptIcon,
+  'Node.js': NodejsIcon,
+  'Express': ExpressIcon,
+  'FastAPI': FastAPIIcon,
+  'MySQL': MysqlIcon,
+  'PostgreSQL': PostgresIcon,
+  'Solidity': SolidityIcon,
+  'Ethereum': EthereumIcon,
+  'Ethers.js': EthersIcon,
+  'IPFS': IpfsIcon,
+  'Figma': FigmaIcon,
+  'Git': GitIcon,
+  'GitHub': GithubBrandIcon,
+  'Tailwind CSS': TailwindIcon,
+  'Vite': ViteIcon,
+  'Docker': DockerIcon,
+}
+
 const row1: TechItem[] = [
   { name: 'React', icon: ReactIcon },
   { name: 'Next.js', icon: NextjsIcon },
@@ -223,20 +273,20 @@ const row2: TechItem[] = [
 
 export function TechMarquee() {
   return (
-    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[115px] sm:min-h-[180px] overflow-hidden py-1 sm:py-2 select-none sm:col-span-2 md:col-span-4 lg:col-span-2">
+    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[130px] sm:min-h-[230px] overflow-hidden py-1.5 sm:py-4 select-none sm:col-span-2 md:col-span-4 lg:col-span-2">
       {/* Edge gradient masks for smooth fade */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 sm:w-10 bg-gradient-to-r from-cream to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 sm:w-10 bg-gradient-to-l from-cream to-transparent" />
 
-      <div className="flex flex-col gap-2.5 sm:gap-4 py-0.5 sm:py-1">
+      <div className="flex flex-col gap-2 sm:gap-4 py-0.5 sm:py-1">
         {/* Row 1 */}
         <div className="flex w-max gap-2.5 sm:gap-3.5 animate-marquee-right group-hover:[animation-play-state:paused]">
           {[...row1, ...row1].map((tech, idx) => (
             <div
               key={`r1-${tech.name}-${idx}`}
-              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 sm:px-4 py-2 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
+              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 py-2 sm:px-4 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
-              <tech.icon className="size-4.5 sm:size-6 shrink-0" />
+              <tech.icon className="size-4 shrink-0 sm:size-6" />
               <span className="whitespace-nowrap text-xs font-medium text-ink/90 sm:text-sm">
                 {tech.name}
               </span>
@@ -249,9 +299,9 @@ export function TechMarquee() {
           {[...row2, ...row2].map((tech, idx) => (
             <div
               key={`r2-${tech.name}-${idx}`}
-              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 sm:px-4 py-2 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
+              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 py-2 sm:px-4 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
-              <tech.icon className="size-4.5 sm:size-6 shrink-0" />
+              <tech.icon className="size-4 shrink-0 sm:size-6" />
               <span className="whitespace-nowrap text-xs font-medium text-ink/90 sm:text-sm">
                 {tech.name}
               </span>

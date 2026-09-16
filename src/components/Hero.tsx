@@ -20,14 +20,6 @@ export function Hero() {
 
           {/* KOLOM KANAN: Text & CTA */}
           <div className="flex flex-col justify-center">
-            {/* Status & Location Pill */}
-            <div className="mb-3 inline-flex items-center gap-2.5 rounded-full bg-ink/5 px-4 py-1.5 w-fit">
-              <span className="size-2 rounded-full bg-mint animate-pulse" />
-              <span className="font-mono text-[11px] tracking-widest text-muted">
-                Based in {site.city} • {site.availability}
-              </span>
-            </div>
-
             {/* Title */}
             <h1 className="font-serif text-[64px] leading-[0.9] tracking-tight sm:text-[88px] lg:text-[104px] text-ink">
               Fahriza

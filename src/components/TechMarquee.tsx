@@ -223,20 +223,20 @@ const row2: TechItem[] = [
 
 export function TechMarquee() {
   return (
-    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[230px] overflow-hidden py-4 select-none sm:col-span-2 md:col-span-4 lg:col-span-2">
+    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[110px] sm:min-h-[230px] overflow-hidden py-1 sm:py-4 select-none sm:col-span-2 md:col-span-4 lg:col-span-2">
       {/* Edge gradient masks for smooth fade */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-cream to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-cream to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 sm:w-10 bg-gradient-to-r from-cream to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 sm:w-10 bg-gradient-to-l from-cream to-transparent" />
 
-      <div className="flex flex-col gap-4 py-1">
+      <div className="flex flex-col gap-2.5 sm:gap-4 py-0.5 sm:py-1">
         {/* Row 1 */}
-        <div className="flex w-max gap-3.5 animate-marquee-right group-hover:[animation-play-state:paused]">
+        <div className="flex w-max gap-2.5 sm:gap-3.5 animate-marquee-right group-hover:[animation-play-state:paused]">
           {[...row1, ...row1].map((tech, idx) => (
             <div
               key={`r1-${tech.name}-${idx}`}
-              className="flex items-center gap-2.5 rounded-2xl bg-paper px-4 py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
+              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 sm:px-4 py-2 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
-              <tech.icon className="size-5 shrink-0 sm:size-6" />
+              <tech.icon className="size-4.5 sm:size-6 shrink-0" />
               <span className="whitespace-nowrap text-xs font-medium text-ink/90 sm:text-sm">
                 {tech.name}
               </span>
@@ -245,13 +245,13 @@ export function TechMarquee() {
         </div>
 
         {/* Row 2 */}
-        <div className="flex w-max gap-3.5 animate-marquee-right-slow group-hover:[animation-play-state:paused]">
+        <div className="flex w-max gap-2.5 sm:gap-3.5 animate-marquee-right-slow group-hover:[animation-play-state:paused]">
           {[...row2, ...row2].map((tech, idx) => (
             <div
               key={`r2-${tech.name}-${idx}`}
-              className="flex items-center gap-2.5 rounded-2xl bg-paper px-4 py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
+              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 sm:px-4 py-2 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
-              <tech.icon className="size-5 shrink-0 sm:size-6" />
+              <tech.icon className="size-4.5 sm:size-6 shrink-0" />
               <span className="whitespace-nowrap text-xs font-medium text-ink/90 sm:text-sm">
                 {tech.name}
               </span>

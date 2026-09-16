@@ -67,7 +67,7 @@ export function Hero() {
         </div>
 
         {/* Feature Cards Grid: Floating Tech Marquee + 3 Conceptual Cards */}
-        <div className="mt-6 md:mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 items-stretch" data-reveal>
+        <div className="mt-5 sm:mt-8 md:mt-12 lg:mt-14 grid grid-cols-1 gap-2.5 sm:gap-3.5 items-stretch" data-reveal>
           {/* Floating Technology Showcase */}
           <TechMarquee />
 

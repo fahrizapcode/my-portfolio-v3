@@ -27,7 +27,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
         </Link>
 
         {/* Header */}
-        <p className="mt-10 font-mono text-[11px] tracking-widest text-muted uppercase">
+        <p className="mt-10 font-mono text-[11px] tracking-widest text-muted">
           {project.number} · {project.type}
         </p>
         <h1 className="mt-3 font-serif text-5xl tracking-tight md:text-[72px] md:leading-[0.92]">
@@ -76,14 +76,14 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
 
         {/* Architecture */}
         <section className="mt-14 border-t border-line pt-10">
-          <p className="font-mono text-[11px] tracking-widest text-muted uppercase">
+          <p className="font-mono text-[11px] tracking-widest text-muted">
             Technical
           </p>
           <h2 className="mt-2 font-serif text-3xl">Architecture</h2>
           <div className="mt-6 space-y-6">
             {project.architecture.map((flow) => (
               <div key={flow.title}>
-                <p className="mb-3 text-[11px] tracking-widest text-muted uppercase">
+                <p className="mb-3 text-[11px] tracking-widest text-muted">
                   {flow.title}
                 </p>
                 <ol className="flex flex-wrap items-center gap-2">
@@ -107,7 +107,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
 
         {/* Key Challenges */}
         <section className="mt-14 border-t border-line pt-10">
-          <p className="font-mono text-[11px] tracking-widest text-muted uppercase">
+          <p className="font-mono text-[11px] tracking-widest text-muted">
             Engineering
           </p>
           <h2 className="mt-2 font-serif text-3xl">Key Challenges</h2>

@@ -1,40 +1,85 @@
-export function Portrait() {
+import { site } from '../data/site'
+
+interface PortraitProps {
+  className?: string
+  variant?: 'card' | 'avatar' | 'puzzle'
+}
+
+export function Portrait({ className = '', variant = 'puzzle' }: PortraitProps) {
+  if (variant === 'avatar') {
+    return (
+      <div className={`group relative inline-block ${className}`}>
+        <div className="absolute inset-[-4px] rounded-full bg-gradient-to-tr from-lavender via-blush to-mint opacity-70 blur-xs transition-all duration-300 group-hover:scale-105 group-hover:opacity-100" />
+        <div className="relative aspect-square size-full overflow-hidden rounded-full bg-cream transition-transform duration-300 group-hover:scale-[1.02]">
+          <img
+            src="/me.png"
+            alt={site.name}
+            className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+        </div>
+      </div>
+    )
+  }
+
+  // 3-Card Connected Puzzle Portrait Component
   return (
-    <div className="relative mx-auto aspect-square w-[72%] max-w-[230px]">
-      {/* Blush halo ring */}
-      <div className="absolute inset-[-12%] rounded-full bg-blush/80" />
-      {/* Photo frame */}
-      <div className="absolute inset-0 overflow-hidden rounded-full bg-[#d4cfc8] ring-2 ring-white/60">
-        <svg viewBox="0 0 200 200" className="h-full w-full" aria-hidden="true">
-          {/* Background */}
-          <rect width="200" height="200" fill="#ccc5bc" />
-          {/* Torso/shoulders */}
-          <ellipse cx="100" cy="178" rx="68" ry="52" fill="#2a2724" />
-          {/* Neck */}
-          <rect x="87" y="128" width="26" height="26" rx="6" fill="#bfb5aa" />
-          {/* Head */}
-          <ellipse cx="100" cy="100" rx="42" ry="46" fill="#c4bab1" />
-          {/* Hair */}
-          <ellipse cx="100" cy="72" rx="42" ry="36" fill="#2e2b27" />
-          {/* Ear L */}
-          <ellipse cx="58" cy="105" rx="7" ry="9" fill="#bfb5aa" />
-          {/* Ear R */}
-          <ellipse cx="142" cy="105" rx="7" ry="9" fill="#bfb5aa" />
-          {/* Glasses frame */}
-          <rect x="62" y="95" width="76" height="16" rx="8" fill="#1e1c1a" opacity="0.9" />
-          {/* Glasses lens L */}
-          <ellipse cx="83" cy="103" rx="12" ry="7.5" fill="#ddd8d0" opacity="0.7" />
-          {/* Glasses lens R */}
-          <ellipse cx="117" cy="103" rx="12" ry="7.5" fill="#ddd8d0" opacity="0.7" />
-          {/* Glasses bridge */}
-          <rect x="93" y="100" width="14" height="3" rx="1.5" fill="#1e1c1a" opacity="0.8" />
-          {/* Nose */}
-          <ellipse cx="100" cy="118" rx="6" ry="4" fill="#a89f95" />
-          {/* Mouth */}
-          <path d="M88 128 Q100 133 112 128" stroke="#8a8178" strokeWidth="2" fill="none" strokeLinecap="round" />
-          {/* Mustache */}
-          <path d="M88 123 Q100 127 112 123" stroke="#2e2b27" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7" />
-        </svg>
+    <div
+      className={`group relative flex w-full max-w-[480px] sm:max-w-[520px] aspect-[4/3.5] gap-1.5 sm:gap-2 ${className}`}
+    >
+      {/* KOLOM KIRI: 2 Cards Vertikal Atas & Bawah */}
+      <div className="flex w-[38%] flex-col gap-1.5 sm:gap-2 h-full shrink-0">
+        {/* CARD 1: TOP LEFT (bg-mint, rounded-20px) */}
+        <div className="relative flex-1 overflow-hidden rounded-[18px] sm:rounded-[20px] bg-mint transition-transform duration-300 hover:scale-[1.01]">
+          {/* Puzzle Image Slice: Top-Left (Shifted UP slightly so head/hair shows more) */}
+          <img
+            src="/me.png"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-0 right-0 max-w-none object-contain object-bottom transition-transform duration-700 ease-out scale-[1.12] origin-bottom-right"
+            style={{
+              width: '263.15%',
+              height: '206.18%',
+              top: '0%',
+              left: '0%',
+            }}
+          />
+        </div>
+
+        {/* CARD 2: BOTTOM LEFT (bg-plum, rounded-20px) */}
+        <div className="relative flex-1 overflow-hidden rounded-[18px] sm:rounded-[20px] bg-plum transition-transform duration-300 hover:scale-[1.01]">
+          {/* Puzzle Image Slice: Bottom-Left (Shifted UP synchronously) */}
+          <img
+            src="/me.png"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-0 right-0 max-w-none object-contain object-bottom transition-transform duration-700 ease-out scale-[1.12] origin-bottom-right"
+            style={{
+              width: '263.15%',
+              height: '206.18%',
+              top: '-106.18%',
+              left: '0%',
+            }}
+          />
+        </div>
+      </div>
+
+      {/* CARD 3: RIGHT CARD (bg-gold like Web3 card, rounded-20px) */}
+      <div className="relative flex-1 overflow-hidden rounded-[18px] sm:rounded-[20px] bg-gold transition-transform duration-300 hover:scale-[1.01]">
+        {/* Soft ambient lighting highlights */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.3),transparent_60%)]" />
+
+        {/* Puzzle Image Slice: Right Side */}
+        <img
+          src="/me.png"
+          alt={site.name}
+          className="absolute bottom-0 right-0 max-w-none object-contain object-bottom drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] transition-transform duration-700 ease-out scale-[1.12] origin-bottom-right"
+          style={{
+            width: '166.66%',
+            height: '100%',
+            top: '0%',
+            left: '-66.66%',
+          }}
+        />
       </div>
     </div>
   )

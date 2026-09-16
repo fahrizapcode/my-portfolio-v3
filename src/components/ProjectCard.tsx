@@ -5,24 +5,24 @@ import { ArrowIcon } from './icons'
 import { featuredMockupId, ProjectMockup } from './ProjectMockups'
 
 const accentBg: Record<Project['accent'], string> = {
+  lavender: 'bg-lavender/30',
+  mint: 'bg-mint/35',
+  gold: 'bg-gold/35',
+  night: 'bg-plum/30',
+}
+
+const accentInfoBg: Record<Project['accent'], string> = {
   lavender: 'bg-lavender/20',
   mint: 'bg-mint/25',
   gold: 'bg-gold/25',
-  night: 'bg-charcoal/10',
-}
-
-const accentBorder: Record<Project['accent'], string> = {
-  lavender: 'border-lavender/50',
-  mint: 'border-mint/50',
-  gold: 'border-gold/50',
-  night: 'border-charcoal/30',
+  night: 'bg-plum/20',
 }
 
 const accentTag: Record<Project['accent'], string> = {
-  lavender: 'bg-lavender/30 text-ink/70',
-  mint: 'bg-mint/40 text-ink/70',
-  gold: 'bg-gold/35 text-ink/70',
-  night: 'bg-charcoal/10 text-ink/70',
+  lavender: 'bg-lavender/40 text-ink/80',
+  mint: 'bg-mint/50 text-ink/80',
+  gold: 'bg-gold/45 text-ink/80',
+  night: 'bg-plum/40 text-ink/80',
 }
 
 export function ProjectCard({
@@ -36,13 +36,13 @@ export function ProjectCard({
 
   return (
     <article
-      className="grid items-stretch gap-4 lg:grid-cols-12 lg:gap-5"
+      className="grid items-stretch gap-3 lg:grid-cols-12 lg:gap-4"
       data-reveal
     >
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[260px] overflow-hidden rounded-[28px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${accentBg[project.accent]} ${
+        className={`group relative min-h-[260px] overflow-hidden rounded-[16px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${accentBg[project.accent]} ${
           reverse ? 'lg:order-2' : ''
         }`}
       >
@@ -59,7 +59,7 @@ export function ProjectCard({
 
       {/* Info panel */}
       <div
-        className={`flex flex-col justify-between rounded-[28px] border bg-paper p-6 sm:p-8 lg:col-span-5 ${accentBorder[project.accent]} ${
+        className={`flex flex-col justify-between rounded-[16px] p-6 sm:p-8 lg:col-span-5 ${accentInfoBg[project.accent]} ${
           reverse ? 'lg:order-1' : ''
         }`}
       >

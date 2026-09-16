@@ -38,15 +38,15 @@ export function GitHub() {
       <div className="mx-auto max-w-[1280px]">
 
         {/* Header */}
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4 md:mb-12" data-reveal>
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-4 md:mb-5" data-reveal>
           <div>
-            <p className="font-mono text-[11px] tracking-widest text-muted uppercase">
+            <p className="font-sans text-[11px] font-semibold tracking-widest text-muted">
               Open source
             </p>
-            <h2 className="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">
+            <h2 className="mt-2 font-serif text-4xl tracking-tight sm:text-5xl">
               More code on GitHub
             </h2>
-            <p className="mt-3 text-muted">
+            <p className="mt-2 text-muted">
               Selected repositories and recent activity.
             </p>
           </div>

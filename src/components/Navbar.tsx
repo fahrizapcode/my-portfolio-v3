@@ -36,7 +36,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -50,7 +50,7 @@ export function Navbar() {
             href={site.github}
             target="_blank"
             rel="noreferrer"
-            className="ml-1 text-ink/70 transition-colors hover:text-ink"
+            className="text-ink/70 transition-colors hover:text-ink"
             aria-label="GitHub profile"
           >
             <GitHubIcon className="size-[18px]" />
@@ -107,9 +107,11 @@ export function Navbar() {
               <GitHubIcon className="size-4" />
               GitHub
             </a>
+
           </nav>
         </div>
       )}
     </header>
   )
 }
+

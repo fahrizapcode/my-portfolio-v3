@@ -2,9 +2,9 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
-
 export function Layout() {
   const { pathname } = useLocation()
+
   // Re-run reveal observer whenever the route changes
   useScrollReveal()
 

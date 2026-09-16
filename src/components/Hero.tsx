@@ -1,57 +1,63 @@
-import { Link } from 'react-router-dom'
 import { site } from '../data/site'
 import { CornerMark } from './CornerMark'
-import { ArrowIcon, GitHubIcon, MailIcon } from './icons'
+import { ArrowIcon, GitHubIcon, ProductIcon, SystemsIcon, Web3Icon } from './icons'
 import { Portrait } from './Portrait'
-import { KanbanMockup } from './ProjectMockups'
+import { TechMarquee } from './TechMarquee'
 
 export function Hero() {
   return (
-    <section className="px-3 py-16 sm:px-4 md:px-6 md:py-24">
+    <section className="px-3 pt-3 pb-10 sm:px-4 md:px-6 md:pt-4 md:pb-14">
       <div className="mx-auto max-w-[1280px]">
-        
-        <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between md:gap-12" data-reveal>
-          <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="size-16 overflow-hidden rounded-full border border-line bg-lavender/30">
-                <Portrait />
-              </div>
-              <div>
-                <p className="font-mono text-[11px] tracking-widest text-muted uppercase">
-                  Based in {site.city}
-                </p>
-                <p className="mt-0.5 text-[13px] text-ink/70">
-                  {site.availability}
-                </p>
-              </div>
+        {/* 2-Column Main Hero Section */}
+        <div
+          className="grid gap-8 lg:grid-cols-[460px_1fr] xl:grid-cols-[500px_1fr] lg:gap-12 lg:items-center"
+          data-reveal
+        >
+          {/* KOLOM KIRI: 3 Cards Puzzle Menyambung Foto me.png */}
+          <div className="w-full max-w-[480px] sm:max-w-[520px] mx-auto lg:mx-0">
+            <Portrait variant="puzzle" />
+          </div>
+
+          {/* KOLOM KANAN: Text & CTA */}
+          <div className="flex flex-col justify-center">
+            {/* Status & Location Pill */}
+            <div className="mb-3 inline-flex items-center gap-2.5 rounded-full bg-ink/5 px-4 py-1.5 w-fit">
+              <span className="size-2 rounded-full bg-mint animate-pulse" />
+              <span className="font-mono text-[11px] tracking-widest text-muted">
+                Based in {site.city} • {site.availability}
+              </span>
             </div>
-            
-            <h1 className="font-serif text-[56px] leading-[0.9] tracking-tight sm:text-[80px] lg:text-[110px]">
+
+            {/* Title */}
+            <h1 className="font-serif text-[64px] leading-[0.9] tracking-tight sm:text-[88px] lg:text-[104px] text-ink">
               Fahriza
             </h1>
-            <p className="mt-6 max-w-2xl text-[20px] leading-snug text-ink sm:text-[24px] md:text-[28px]">
+
+            {/* Subtitle */}
+            <p className="mt-3 text-[22px] leading-snug font-medium text-ink sm:text-[26px] lg:text-[30px] max-w-2xl">
               Full-stack developer building practical digital products.
             </p>
-          </div>
-          
-          <div className="max-w-sm pb-2">
-            <p className="text-[15px] leading-relaxed text-muted">
+
+            {/* Paragraph Text */}
+            <p className="mt-3 text-[16px] leading-relaxed text-muted sm:text-[18px] max-w-xl">
               I build web applications across the frontend, backend, and Web3 stack —
               from product interfaces and APIs to blockchain integrations.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+
+            {/* CTA Buttons */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="#work"
-                className="relative inline-flex items-center gap-2 rounded-full bg-black/40 px-6 py-3 text-sm text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] ring-1 ring-white/20 backdrop-blur-md transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:ring-white/40"
+                className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3 text-sm font-medium text-cream transition-all hover:bg-ink/85 hover:gap-3.5 shadow-md active:scale-95"
               >
                 View Projects
-                <ArrowIcon className="size-3.5" />
+                <ArrowIcon className="size-4" />
               </a>
               <a
                 href={site.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-6 py-3 text-sm text-ink transition-colors hover:border-ink/40"
+                className="inline-flex items-center gap-2.5 rounded-full border border-line bg-paper px-6 py-3 text-sm font-medium text-ink transition-all hover:border-ink/50 hover:bg-cream shadow-xs active:scale-95"
               >
                 <GitHubIcon className="size-4" />
                 GitHub
@@ -60,38 +66,72 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 grid gap-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5" data-reveal>
-          <div className="relative col-span-2 min-h-[220px] overflow-hidden rounded-[24px] bg-[#efeaf8] sm:col-span-2 lg:col-span-2">
-            <KanbanMockup />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/5 opacity-0 transition-opacity hover:opacity-100">
-              <Link
-                to="/work/if-collab"
-                className="flex size-14 items-center justify-center rounded-full bg-white text-ink shadow-lg transition-transform hover:scale-105"
-                aria-label="Open IF-Collab case study"
-              >
-                <span className="ml-1 border-y-[8px] border-y-transparent border-l-[12px] border-l-ink" />
-              </Link>
+        {/* Feature Cards Grid: Floating Tech Marquee + 3 Conceptual Cards */}
+        <div className="mt-6 md:mt-8 grid grid-cols-1 gap-3.5 items-stretch sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5" data-reveal>
+          {/* Floating Technology Showcase */}
+          <TechMarquee />
+
+          {/* CARD 01 — PRODUCT */}
+          <article className="group relative col-span-1 flex min-h-[230px] flex-col justify-between overflow-hidden rounded-[16px] bg-mint/90 p-5 text-ink transition-transform duration-300 hover:scale-[1.015]">
+            <CornerMark />
+            {/* Top row: Number only */}
+            <div>
+              <p className="font-mono text-xs font-semibold text-ink/40">01</p>
             </div>
-          </div>
 
-          <article className="relative col-span-1 flex min-h-[140px] flex-col justify-end rounded-[24px] bg-mint p-5">
-            <CornerMark />
-            <p className="font-serif text-3xl leading-none">Next</p>
-            <p className="mt-1 text-[11px] text-ink/60">Frontend systems</p>
+            {/* Bottom block: Icon directly above Title, Subtitle, Supporting text */}
+            <div className="mt-6">
+              <div className="mb-3 flex size-11 items-center justify-center rounded-xl bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
+                <ProductIcon className="size-6 opacity-90" />
+              </div>
+              <p className="font-serif text-2xl font-semibold tracking-tight text-ink">Product</p>
+              <p className="mt-1 text-xs text-ink/75 font-medium leading-snug">From idea to interface</p>
+              <p className="mt-4 font-mono text-[10px] tracking-wider text-ink/65 font-medium">
+                UI · UX · FRONTEND
+              </p>
+            </div>
           </article>
 
-          <article className="relative col-span-1 flex min-h-[140px] flex-col justify-end rounded-[24px] bg-plum p-5">
+          {/* CARD 02 — SYSTEMS */}
+          <article className="group relative col-span-1 flex min-h-[230px] flex-col justify-between overflow-hidden rounded-[16px] bg-plum/90 p-5 text-ink transition-transform duration-300 hover:scale-[1.015]">
             <CornerMark />
-            <p className="font-serif text-3xl leading-none">Node</p>
-            <p className="mt-1 text-[11px] text-ink/60">APIs & data</p>
+            {/* Top row: Number only */}
+            <div>
+              <p className="font-mono text-xs font-semibold text-ink/40">02</p>
+            </div>
+
+            {/* Bottom block: Icon directly above Title, Subtitle, Supporting text */}
+            <div className="mt-6">
+              <div className="mb-3 flex size-11 items-center justify-center rounded-xl bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
+                <SystemsIcon className="size-6 opacity-90" />
+              </div>
+              <p className="font-serif text-2xl font-semibold tracking-tight text-ink">Systems</p>
+              <p className="mt-1 text-xs text-ink/75 font-medium leading-snug">From API to infrastructure</p>
+              <p className="mt-4 font-mono text-[10px] tracking-wider text-ink/65 font-medium">
+                BACKEND · DATABASE · ARCHITECTURE
+              </p>
+            </div>
           </article>
 
-          <article className="relative col-span-1 flex min-h-[140px] flex-col justify-end rounded-[24px] bg-gold p-5 sm:col-span-2 lg:col-span-1">
+          {/* CARD 03 — WEB3 */}
+          <article className="group relative col-span-1 flex min-h-[230px] flex-col justify-between overflow-hidden rounded-[16px] bg-gold/90 p-5 text-ink transition-transform duration-300 hover:scale-[1.015] sm:col-span-2 md:col-span-2 lg:col-span-1">
             <CornerMark />
-            <p className="font-serif text-3xl leading-none">Web3</p>
-            <p className="mt-1 text-[11px] text-ink/65">
-              Solidity, Ethereum, IPFS
-            </p>
+            {/* Top row: Number only */}
+            <div>
+              <p className="font-mono text-xs font-semibold text-ink/40">03</p>
+            </div>
+
+            {/* Bottom block: Icon directly above Title, Subtitle, Supporting text */}
+            <div className="mt-6">
+              <div className="mb-3 flex size-11 items-center justify-center rounded-xl bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
+                <Web3Icon className="size-6 opacity-90" />
+              </div>
+              <p className="font-serif text-2xl font-semibold tracking-tight text-ink">Web3</p>
+              <p className="mt-1 text-xs text-ink/75 font-medium leading-snug">When decentralization makes sense</p>
+              <p className="mt-4 font-mono text-[10px] tracking-wider text-ink/65 font-medium">
+                SOLIDITY · ETHEREUM · IPFS
+              </p>
+            </div>
           </article>
         </div>
       </div>

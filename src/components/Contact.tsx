@@ -11,7 +11,7 @@ export function Contact() {
         className="mx-auto max-w-[1280px] rounded-[32px] bg-ink px-6 py-14 sm:px-12 sm:py-20 md:px-16 md:py-24"
         data-reveal
       >
-        <p className="font-mono text-[11px] tracking-widest text-cream/40 uppercase">
+        <p className="font-sans text-[11px] font-semibold tracking-widest text-cream/40">
           Contact
         </p>
         <h2 className="mt-4 max-w-xl font-serif text-4xl tracking-tight text-cream sm:text-6xl sm:leading-[1.0]">

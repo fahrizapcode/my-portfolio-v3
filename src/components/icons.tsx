@@ -41,3 +41,69 @@ export function MailIcon({ className }: { className?: string }) {
     </svg>
   )
 }
+
+// Layout / Wireframe Icon for Product
+export function ProductIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M3 9h18" />
+      <path d="M9 21V9" />
+      <rect x="12" y="12" width="6" height="3" rx="1" fill="currentColor" fillOpacity="0.15" />
+      <rect x="12" y="16.5" width="4" height="2" rx="0.5" fill="currentColor" fillOpacity="0.1" />
+    </svg>
+  )
+}
+
+// Server / Architecture Icon for Systems
+export function SystemsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="6" rx="2" />
+      <rect x="3" y="14" width="18" height="6" rx="2" />
+      <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01" strokeWidth="2.2" />
+      <path d="M12 10v4" strokeDasharray="1.5 1.5" />
+    </svg>
+  )
+}
+
+// Network / Nodes Icon for Web3
+export function Web3Icon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="5" r="2.5" />
+      <circle cx="5" cy="18" r="2.5" />
+      <circle cx="19" cy="18" r="2.5" />
+      <path d="M10.5 7 6.5 16" />
+      <path d="M13.5 7l4 9" />
+      <path d="M7.5 18h9" />
+    </svg>
+  )
+}

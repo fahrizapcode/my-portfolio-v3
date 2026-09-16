@@ -74,63 +74,63 @@ export function Hero() {
           {/* 3 Conceptual Cards Wrapper: 1 Row (3 Columns) on Mobile, unrolled on desktop/tablet via sm:contents */}
           <div className="grid grid-cols-3 gap-2 sm:contents">
             {/* CARD 01 — PRODUCT */}
-            <article className="group relative flex min-h-[140px] sm:min-h-[230px] flex-col justify-between overflow-hidden rounded-[12px] sm:rounded-[16px] bg-mint/90 p-2.5 sm:p-5 text-ink transition-transform duration-300 hover:scale-[1.015] lg:col-span-1">
+            <article className="group relative flex min-h-[115px] sm:min-h-[180px] flex-col justify-between overflow-hidden rounded-[12px] sm:rounded-[16px] bg-mint/90 p-2 sm:p-4 text-ink transition-transform duration-300 hover:scale-[1.015] lg:col-span-1">
               <span className="hidden sm:block"><CornerMark /></span>
               {/* Top row: Number only */}
               <div>
-                <p className="font-mono text-[10px] sm:text-xs font-semibold text-ink/50">01</p>
+                <p className="font-mono text-[9px] sm:text-xs font-semibold text-ink/50">01</p>
               </div>
 
               {/* Bottom block: Icon directly above Title, Subtitle, Supporting text */}
-              <div className="mt-2 sm:mt-6">
-                <div className="mb-1.5 sm:mb-3 flex size-7 sm:size-11 items-center justify-center rounded-lg sm:rounded-xl bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
-                  <ProductIcon className="size-4 sm:size-6 opacity-90" />
+              <div className="mt-1 sm:mt-3">
+                <div className="mb-1 sm:mb-2 flex size-6 sm:size-9 items-center justify-center rounded-md sm:rounded-lg bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
+                  <ProductIcon className="size-3.5 sm:size-5 opacity-90" />
                 </div>
-                <p className="font-serif text-sm sm:text-2xl font-semibold tracking-tight text-ink">Product</p>
-                <p className="mt-0.5 text-[10px] sm:text-xs text-ink/75 font-medium leading-snug line-clamp-1 sm:line-clamp-none">From idea to interface</p>
-                <p className="mt-1.5 sm:mt-4 font-mono text-[8px] sm:text-[10px] tracking-tight sm:tracking-wider text-ink/65 font-medium truncate">
+                <p className="font-serif text-xs sm:text-xl font-semibold tracking-tight text-ink">Product</p>
+                <p className="mt-0.5 text-[9.5px] sm:text-xs text-ink/75 font-medium leading-snug line-clamp-1 sm:line-clamp-none">From idea to interface</p>
+                <p className="mt-1 sm:mt-2.5 font-mono text-[7.5px] sm:text-[9.5px] tracking-tight sm:tracking-wider text-ink/65 font-medium truncate">
                   UI · UX · FRONTEND
                 </p>
               </div>
             </article>
 
             {/* CARD 02 — SYSTEMS */}
-            <article className="group relative flex min-h-[140px] sm:min-h-[230px] flex-col justify-between overflow-hidden rounded-[12px] sm:rounded-[16px] bg-plum/90 p-2.5 sm:p-5 text-ink transition-transform duration-300 hover:scale-[1.015] lg:col-span-1">
+            <article className="group relative flex min-h-[115px] sm:min-h-[180px] flex-col justify-between overflow-hidden rounded-[12px] sm:rounded-[16px] bg-plum/90 p-2 sm:p-4 text-ink transition-transform duration-300 hover:scale-[1.015] lg:col-span-1">
               <span className="hidden sm:block"><CornerMark /></span>
               {/* Top row: Number only */}
               <div>
-                <p className="font-mono text-[10px] sm:text-xs font-semibold text-ink/50">02</p>
+                <p className="font-mono text-[9px] sm:text-xs font-semibold text-ink/50">02</p>
               </div>
 
               {/* Bottom block: Icon directly above Title, Subtitle, Supporting text */}
-              <div className="mt-2 sm:mt-6">
-                <div className="mb-1.5 sm:mb-3 flex size-7 sm:size-11 items-center justify-center rounded-lg sm:rounded-xl bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
-                  <SystemsIcon className="size-4 sm:size-6 opacity-90" />
+              <div className="mt-1 sm:mt-3">
+                <div className="mb-1 sm:mb-2 flex size-6 sm:size-9 items-center justify-center rounded-md sm:rounded-lg bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
+                  <SystemsIcon className="size-3.5 sm:size-5 opacity-90" />
                 </div>
-                <p className="font-serif text-sm sm:text-2xl font-semibold tracking-tight text-ink">Systems</p>
-                <p className="mt-0.5 text-[10px] sm:text-xs text-ink/75 font-medium leading-snug line-clamp-1 sm:line-clamp-none">From API to infra</p>
-                <p className="mt-1.5 sm:mt-4 font-mono text-[8px] sm:text-[10px] tracking-tight sm:tracking-wider text-ink/65 font-medium truncate">
+                <p className="font-serif text-xs sm:text-xl font-semibold tracking-tight text-ink">Systems</p>
+                <p className="mt-0.5 text-[9.5px] sm:text-xs text-ink/75 font-medium leading-snug line-clamp-1 sm:line-clamp-none">From API to infra</p>
+                <p className="mt-1 sm:mt-2.5 font-mono text-[7.5px] sm:text-[9.5px] tracking-tight sm:tracking-wider text-ink/65 font-medium truncate">
                   BACKEND · DATABASE
                 </p>
               </div>
             </article>
 
             {/* CARD 03 — WEB3 */}
-            <article className="group relative flex min-h-[140px] sm:min-h-[230px] flex-col justify-between overflow-hidden rounded-[12px] sm:rounded-[16px] bg-gold/90 p-2.5 sm:p-5 text-ink transition-transform duration-300 hover:scale-[1.015] sm:col-span-2 md:col-span-2 lg:col-span-1">
+            <article className="group relative flex min-h-[115px] sm:min-h-[180px] flex-col justify-between overflow-hidden rounded-[12px] sm:rounded-[16px] bg-gold/90 p-2 sm:p-4 text-ink transition-transform duration-300 hover:scale-[1.015] sm:col-span-2 md:col-span-2 lg:col-span-1">
               <span className="hidden sm:block"><CornerMark /></span>
               {/* Top row: Number only */}
               <div>
-                <p className="font-mono text-[10px] sm:text-xs font-semibold text-ink/50">03</p>
+                <p className="font-mono text-[9px] sm:text-xs font-semibold text-ink/50">03</p>
               </div>
 
               {/* Bottom block: Icon directly above Title, Subtitle, Supporting text */}
-              <div className="mt-2 sm:mt-6">
-                <div className="mb-1.5 sm:mb-3 flex size-7 sm:size-11 items-center justify-center rounded-lg sm:rounded-xl bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
-                  <Web3Icon className="size-4 sm:size-6 opacity-90" />
+              <div className="mt-1 sm:mt-3">
+                <div className="mb-1 sm:mb-2 flex size-6 sm:size-9 items-center justify-center rounded-md sm:rounded-lg bg-ink/10 text-ink transition-transform duration-300 group-hover:scale-110">
+                  <Web3Icon className="size-3.5 sm:size-5 opacity-90" />
                 </div>
-                <p className="font-serif text-sm sm:text-2xl font-semibold tracking-tight text-ink">Web3</p>
-                <p className="mt-0.5 text-[10px] sm:text-xs text-ink/75 font-medium leading-snug line-clamp-1 sm:line-clamp-none">Decentralization</p>
-                <p className="mt-1.5 sm:mt-4 font-mono text-[8px] sm:text-[10px] tracking-tight sm:tracking-wider text-ink/65 font-medium truncate">
+                <p className="font-serif text-xs sm:text-xl font-semibold tracking-tight text-ink">Web3</p>
+                <p className="mt-0.5 text-[9.5px] sm:text-xs text-ink/75 font-medium leading-snug line-clamp-1 sm:line-clamp-none">Decentralization</p>
+                <p className="mt-1 sm:mt-2.5 font-mono text-[7.5px] sm:text-[9.5px] tracking-tight sm:tracking-wider text-ink/65 font-medium truncate">
                   SOLIDITY · ETH
                 </p>
               </div>

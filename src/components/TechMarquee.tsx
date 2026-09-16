@@ -223,7 +223,7 @@ const row2: TechItem[] = [
 
 export function TechMarquee() {
   return (
-    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[110px] sm:min-h-[230px] overflow-hidden py-1 sm:py-4 select-none sm:col-span-2 md:col-span-4 lg:col-span-2">
+    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[115px] sm:min-h-[180px] overflow-hidden py-1 sm:py-2 select-none sm:col-span-2 md:col-span-4 lg:col-span-2">
       {/* Edge gradient masks for smooth fade */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 sm:w-10 bg-gradient-to-r from-cream to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 sm:w-10 bg-gradient-to-l from-cream to-transparent" />

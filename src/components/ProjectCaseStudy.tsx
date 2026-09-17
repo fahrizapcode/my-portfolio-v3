@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import { ArrowIcon } from './icons'
@@ -10,6 +11,94 @@ const accentChip: Record<Project['accent'], string> = {
   night: 'bg-charcoal/10',
 }
 
+function ScreenshotSlider({
+  screenshots,
+  title,
+}: {
+  screenshots: string[]
+  title: string
+}) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1))
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1))
+  }
+
+  return (
+    <div className="mt-12 flex flex-col gap-3">
+      {/* 1-Column 1-Row Slide Container */}
+      <div className="group relative overflow-hidden rounded-[24px] border border-line bg-paper p-3 shadow-md">
+        <div className="relative flex min-h-[300px] w-full items-center justify-center overflow-hidden rounded-[18px] bg-ink/5 sm:min-h-[440px]">
+          <img
+            src={screenshots[currentIndex]}
+            alt={`${title} Screenshot ${currentIndex + 1}`}
+            className="h-auto max-h-[600px] w-full object-contain shadow-xs transition-all duration-300"
+          />
+        </div>
+
+        {/* Navigation Buttons */}
+        {screenshots.length > 1 ? (
+          <>
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous screenshot"
+              className="absolute top-1/2 left-6 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink/80 text-cream backdrop-blur-md shadow-lg transition-all hover:scale-110 hover:bg-ink active:scale-95"
+            >
+              <span className="inline-flex rotate-180">
+                <ArrowIcon className="size-5" />
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next screenshot"
+              className="absolute top-1/2 right-6 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink/80 text-cream backdrop-blur-md shadow-lg transition-all hover:scale-110 hover:bg-ink active:scale-95"
+            >
+              <ArrowIcon className="size-5" />
+            </button>
+          </>
+        ) : null}
+
+        {/* Counter Pill */}
+        <div className="absolute top-6 right-6 rounded-full bg-ink/75 px-3 py-1 font-mono text-xs text-cream backdrop-blur-md">
+          {currentIndex + 1} / {screenshots.length}
+        </div>
+      </div>
+
+      {/* Slide Indicators / Navigation Bar */}
+      {screenshots.length > 1 ? (
+        <div className="flex items-center justify-between px-2 pt-1">
+          <p className="font-mono text-xs text-muted">
+            Screenshot {String(currentIndex + 1).padStart(2, '0')} of{' '}
+            {String(screenshots.length).padStart(2, '0')}
+          </p>
+
+          <div className="flex items-center gap-1.5">
+            {screenshots.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrentIndex(idx)}
+                aria-label={`Go to screenshot slide ${idx + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentIndex
+                    ? 'w-7 bg-ink'
+                    : 'w-2 bg-ink/20 hover:bg-ink/50'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
 export function ProjectCaseStudy({ project }: { project: Project }) {
   return (
     <article className="px-4 pb-24 md:px-6">
@@ -20,7 +109,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
           to="/#work"
           className="inline-flex items-center gap-2 text-sm text-muted transition-opacity hover:opacity-70"
         >
-          <span className="rotate-180 inline-flex">
+          <span className="inline-flex rotate-180">
             <ArrowIcon className="size-3.5" />
           </span>
           All work
@@ -55,19 +144,23 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             ))}
         </div>
 
-        {/* Mockup gallery */}
-        <div className="mt-12 grid gap-3 sm:grid-cols-2">
-          {project.mockups.map((shot) => (
-            <figure key={shot.id} className="rounded-[24px] bg-paper p-3">
-              <div className="h-[220px] sm:h-[260px]">
-                <ProjectMockup id={shot.id} />
-              </div>
-              <figcaption className="px-1 pt-3 text-xs text-muted">
-                {shot.label}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        {/* Mockup / Screenshot gallery */}
+        {project.screenshots && project.screenshots.length > 0 ? (
+          <ScreenshotSlider screenshots={project.screenshots} title={project.name} />
+        ) : (
+          <div className="mt-12 grid gap-3 sm:grid-cols-2">
+            {project.mockups.map((shot) => (
+              <figure key={shot.id} className="rounded-[24px] bg-paper p-3">
+                <div className="h-[220px] sm:h-[260px]">
+                  <ProjectMockup id={shot.id} />
+                </div>
+                <figcaption className="px-1 pt-3 text-xs text-muted">
+                  {shot.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
 
         {/* Overview */}
         <Section title="Overview">{project.overview}</Section>

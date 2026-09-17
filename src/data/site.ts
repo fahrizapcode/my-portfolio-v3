@@ -69,16 +69,16 @@ export const education = [
 
 export const githubRepos = [
   {
-    name: 'if-collab',
-    description: 'Collaborative boards, tasks, and team workflows for Informatics students.',
-    stack: 'Next.js · TypeScript',
-    updated: 'Updated 2 weeks ago',
-  },
-  {
     name: 'xplover',
     description: 'DeSci knowledge workflows with Ethereum incentives and IPFS storage.',
     stack: 'React · Solidity',
     updated: 'Updated last month',
+  },
+  {
+    name: 'if-collab',
+    description: 'Collaborative boards, tasks, and team workflows for Informatics students.',
+    stack: 'Next.js · TypeScript',
+    updated: 'Updated 2 weeks ago',
   },
   {
     name: 'yuk-mari',

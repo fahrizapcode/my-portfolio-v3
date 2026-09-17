@@ -1,0 +1,31 @@
+{
+    "id": "01 - Web3 DeSci Fullstack Product",
+    "judul": "Xplover Research Protocol",
+    "deskripsi": "A full-stack Web3 protocol that bridges scientific research and public knowledge dissemination through collaborative research, decentralized peer review, and blockchain-based contribution incentives.",
+    "screenshots": [
+        "/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211755.png",
+        "/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211814.png",
+        "/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211833.png",
+        "/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211841.png",
+        "/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211851.png",
+        "/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211912.png"
+    ],
+    "overview": "Xplover Research Protocol (XCR) is a Web3 platform designed as a collaborative infrastructure for transforming scientific research into technology knowledge that is easier for the public to understand. The platform connects Researchers, Content Creators, Peer Reviewers, Visual Designers, and Administrators in a unified workflow, from research collection and structuring to educational content creation, quality control through peer review, and publication. Blockchain serves as an infrastructure layer for recording contributions, distributing incentives, and providing verifiable on-chain contribution records.",
+    "problem": "Technology such as AI, Web3, cybersecurity, and quantum computing is evolving rapidly, while the ability to critically understand scientific and technological information remains a challenge. Relevant information is often scattered across different sources, varies in credibility, and is presented in academic language that can be difficult for the general public to understand. At the same time, technology content on social media is easier to consume but does not always go through sufficient curation and quality control. This creates a gap between knowledge produced through research and technology insights that can be understood and applied by the public, particularly young people.",
+    "solution": "Xplover provides a collaborative workflow that connects research with public knowledge within a single platform. Researchers collect and structure information from credible sources into research briefs covering the problem, research approach, findings, key insights, relevance, limitations, and discussion points. Content Creators then translate the research into educational content such as carousels using accessible language, storytelling, and relevant content angles. Peer Reviewers perform quality control across eight dimensions: accuracy, relevance, clarity, hook, value, flow, CTA, and consistency. Content that reaches the required consensus proceeds to the Visual Designer for visual production and publication. Web3 is used as an infrastructure layer to record contributions on-chain and provide incentives through an ERC-20 token and contribution attestations.",
+    "techStack": [
+        "Next.js 14 (App Router)",
+        "React 18",
+        "TypeScript",
+        "Node.js & Express",
+        "Prisma ORM",
+        "PostgreSQL",
+        "Solidity 0.8.20",
+        "Hardhat",
+        "Ethers.js v6",
+        "Arbitrum Sepolia Testnet",
+        "JWT & Cookie-Based Authentication",
+        "Cyberpunk Glassmorphism UI"
+    ],
+    "outcome": "Built an end-to-end Web3/DeSci full-stack prototype implementing a research-to-content workflow. The platform includes multi-role workflows for Researchers, Content Creators, Peer Reviewers, Visual Designers, and Administrators; structured research management; content transformation workflows; peer-review consensus based on eight evaluation dimensions with a minimum of five reviewers; and blockchain-based token incentives and contribution attestations on Arbitrum Sepolia. The prototype demonstrates how research, collaborative quality control, knowledge dissemination, and verifiable contributor incentives can be integrated into a single platform."
+}

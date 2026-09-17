@@ -47,7 +47,15 @@ export function ProjectCard({
         }`}
       >
         <CornerMark />
-        <ProjectMockup id={featuredMockupId(project.slug)} className="h-full" />
+        {project.screenshots && project.screenshots.length > 0 ? (
+          <img
+            src={project.screenshots[0]}
+            alt={project.name}
+            className="h-full w-full rounded-[12px] object-cover object-top shadow-sm"
+          />
+        ) : (
+          <ProjectMockup id={featuredMockupId(project.slug)} className="h-full" />
+        )}
         {/* Hover overlay hint */}
         <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/80 px-3 py-1.5 text-[11px] text-cream backdrop-blur-sm">

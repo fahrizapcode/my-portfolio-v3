@@ -22,12 +22,82 @@ export type Project = {
   challenges: string[]
   outcome: string
   mockups: { id: string; label: string }[]
+  screenshots?: string[]
 }
 
 export const projects: Project[] = [
   {
-    slug: 'if-collab',
+    slug: 'xplover',
     number: '01',
+    name: 'Xplover Research Protocol',
+    type: 'Web3 DeSci Fullstack Product',
+    summary:
+      'A full-stack Web3 protocol that bridges scientific research and public knowledge dissemination through collaborative research, decentralized peer review, and blockchain-based contribution incentives.',
+    stack: [
+      'Next.js 14',
+      'React 18',
+      'TypeScript',
+      'Node.js & Express',
+      'Prisma ORM',
+      'PostgreSQL',
+      'Solidity 0.8.20',
+      'Hardhat',
+      'Ethers.js v6',
+      'Arbitrum Sepolia',
+      'JWT Auth',
+      'Cyberpunk Glassmorphism UI',
+    ],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/fahriza/xplover' },
+      { label: 'Live Demo', href: 'https://xplover.example.com' },
+      { label: 'Case Study', href: '/work/xplover' },
+    ],
+    accent: 'mint',
+    overview:
+      'Xplover Research Protocol (XCR) is a Web3 platform designed as a collaborative infrastructure for transforming scientific research into technology knowledge that is easier for the public to understand. The platform connects Researchers, Content Creators, Peer Reviewers, Visual Designers, and Administrators in a unified workflow, from research collection and structuring to educational content creation, quality control through peer review, and publication. Blockchain serves as an infrastructure layer for recording contributions, distributing incentives, and providing verifiable on-chain contribution records.',
+    problem:
+      'Technology such as AI, Web3, cybersecurity, and quantum computing is evolving rapidly, while the ability to critically understand scientific and technological information remains a challenge. Relevant information is often scattered across different sources, varies in credibility, and is presented in academic language that can be difficult for the general public to understand. At the same time, technology content on social media is easier to consume but does not always go through sufficient curation and quality control. This creates a gap between knowledge produced through research and technology insights that can be understood and applied by the public, particularly young people.',
+    solution:
+      'Xplover provides a collaborative workflow that connects research with public knowledge within a single platform. Researchers collect and structure information from credible sources into research briefs covering the problem, research approach, findings, key insights, relevance, limitations, and discussion points. Content Creators then translate the research into educational content such as carousels using accessible language, storytelling, and relevant content angles. Peer Reviewers perform quality control across eight dimensions: accuracy, relevance, clarity, hook, value, flow, CTA, and consistency. Content that reaches the required consensus proceeds to the Visual Designer for visual production and publication. Web3 is used as an infrastructure layer to record contributions on-chain and provide incentives through an ERC-20 token and contribution attestations.',
+    architecture: [
+      {
+        title: 'Product API',
+        nodes: ['React / Next.js', 'Express API', 'Prisma & PostgreSQL'],
+      },
+      {
+        title: 'On-chain & Web3 Layer',
+        nodes: ['Ethers.js v6', 'Smart Contract (Solidity 0.8.20)', 'Arbitrum Sepolia Testnet'],
+      },
+      {
+        title: 'Content & Workflow',
+        nodes: ['Research Briefs', 'Content Creation', 'Peer Review Consensus (8 Dimensions)', 'Visual & Publish'],
+      },
+    ],
+    challenges: [
+      'Integrating multi-role workflows (Researcher, Creator, Reviewer, Designer, Admin) with granular state transition permissions.',
+      'Designing an 8-dimensional peer review consensus scoring system requiring minimum reviewer quotas.',
+      'Connecting off-chain PostgreSQL workflow data with on-chain ERC-20 token rewards and contribution attestations on Arbitrum Sepolia.',
+    ],
+    outcome:
+      'Built an end-to-end Web3/DeSci full-stack prototype implementing a research-to-content workflow. The platform includes multi-role workflows for Researchers, Content Creators, Peer Reviewers, Visual Designers, and Administrators; structured research management; content transformation workflows; peer-review consensus based on eight evaluation dimensions with a minimum of five reviewers; and blockchain-based token incentives and contribution attestations on Arbitrum Sepolia. The prototype demonstrates how research, collaborative quality control, knowledge dissemination, and verifiable contributor incentives can be integrated into a single platform.',
+    mockups: [
+      { id: 'research', label: 'Research interface' },
+      { id: 'carousel', label: 'Knowledge carousel' },
+      { id: 'web3', label: 'Web3 interaction' },
+      { id: 'workflow', label: 'Research workflow' },
+    ],
+    screenshots: [
+      '/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211755.png',
+      '/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211814.png',
+      '/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211833.png',
+      '/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211841.png',
+      '/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211851.png',
+      '/projects/xplover-research-protocol/screenshots/Screenshot 2026-09-17 211912.png',
+    ],
+  },
+  {
+    slug: 'if-collab',
+    number: '02',
     name: 'IF-Collab',
     type: 'Full-stack web product',
     summary:
@@ -63,54 +133,6 @@ export const projects: Project[] = [
       { id: 'task', label: 'Task detail' },
       { id: 'dashboard', label: 'Dashboard' },
       { id: 'collab', label: 'Collaboration' },
-    ],
-  },
-  {
-    slug: 'xplover',
-    number: '02',
-    name: 'Xplover',
-    type: 'Web3 research product',
-    summary:
-      'A Web3 collaborative knowledge and DeSci platform connecting academic research with public knowledge through decentralized workflows and verifiable incentives.',
-    stack: ['React', 'Node.js', 'Solidity', 'Ethereum', 'IPFS'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/fahriza/xplover' },
-      { label: 'Live Demo', href: 'https://xplover.example.com' },
-      { label: 'Case Study', href: '/work/xplover' },
-    ],
-    accent: 'mint',
-    overview:
-      'Xplover is a research-oriented product that treats knowledge as a workflow: contributors can publish, review, and surface academic work for a wider public. Blockchain and IPFS are used where verification and durable storage matter, not as decoration.',
-    problem:
-      'Research is hard to follow outside institutions. Credit, review, and access often sit in closed systems. A public knowledge product needs roles, a clear research flow, and a way to store artifacts without turning the interface into a token landing page.',
-    solution:
-      'I designed a research interface with a knowledge carousel, role-based workflow, and Web3 actions that stay secondary to reading and contributing. Smart contracts handle on-chain incentives; IPFS holds content; the Node backend coordinates the application workflow.',
-    architecture: [
-      {
-        title: 'Product API',
-        nodes: ['React frontend', 'Node.js API', 'Application data'],
-      },
-      {
-        title: 'On-chain',
-        nodes: ['React frontend', 'Smart contract', 'Ethereum'],
-      },
-      {
-        title: 'Content',
-        nodes: ['React frontend', 'IPFS'],
-      },
-    ],
-    challenges: [
-      'Separating wallet interactions from the reading experience so the product still works as software, not a mint page.',
-      'Mapping roles (author, reviewer, public reader) onto both off-chain workflow and on-chain incentives.',
-      'Using IPFS for artifacts while keeping the UI responsive and understandable.',
-    ],
-    outcome:
-      'A serious research/knowledge product with a public interface, Web3 hooks where they are justified, and a workflow that can be explained as software architecture rather than as a crypto campaign.',
-    mockups: [
-      { id: 'research', label: 'Research interface' },
-      { id: 'carousel', label: 'Knowledge carousel' },
-      { id: 'web3', label: 'Web3 interaction' },
-      { id: 'workflow', label: 'Research workflow' },
     ],
   },
   {

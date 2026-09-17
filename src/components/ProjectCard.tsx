@@ -42,17 +42,21 @@ export function ProjectCard({
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${accentBg[project.accent]} ${
-          reverse ? 'lg:order-2' : ''
-        }`}
+        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${
+          project.screenshots && project.screenshots.length > 0
+            ? 'bg-white border border-line shadow-xs'
+            : accentBg[project.accent]
+        } ${reverse ? 'lg:order-2' : ''}`}
       >
         <CornerMark />
         {project.screenshots && project.screenshots.length > 0 ? (
-          <img
-            src={project.screenshots[0]}
-            alt={project.name}
-            className="h-full w-full rounded-[12px] object-cover object-top shadow-sm"
-          />
+          <div className="flex h-full min-h-[180px] sm:min-h-[360px] w-full items-center justify-center overflow-hidden rounded-[12px] bg-white p-2">
+            <img
+              src={project.screenshots[0]}
+              alt={project.name}
+              className="max-h-full max-w-full rounded-[8px] object-contain shadow-xs"
+            />
+          </div>
         ) : (
           <ProjectMockup id={featuredMockupId(project.slug)} className="h-full" />
         )}

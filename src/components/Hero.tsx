@@ -6,7 +6,7 @@ import { TechMarquee } from './TechMarquee'
 
 export function Hero() {
   return (
-    <section className="px-3 pt-3 pb-10 sm:px-4 md:px-6 md:pt-4 md:pb-14">
+    <section className="px-3 pt-3 pb-10 sm:px-4 md:px-6 md:pt-10 md:pb-14">
       <div className="mx-auto max-w-[1280px]">
         {/* 2-Column Main Hero Section */}
         <div
@@ -21,18 +21,18 @@ export function Hero() {
           {/* KOLOM KANAN: Text & CTA */}
           <div className="flex flex-col justify-center">
             {/* Title */}
-            <h1 className="font-serif text-[64px] leading-[0.9] tracking-tight sm:text-[88px] lg:text-[104px] text-ink">
-              Fahriza
+            <h1 className="font-serif text-[42px] leading-[0.95] tracking-tight sm:text-[70px] lg:text-[84px] -ml-0.5 sm:-ml-1 lg:-ml-1.5">
+              {site.name}
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-3 text-[22px] leading-snug font-medium text-ink sm:text-[26px] lg:text-[30px] max-w-2xl">
+            <p className="mt-3 text-[18px] leading-snug font-medium text-ink sm:text-[22px] lg:text-[27px] max-w-2xl">
               Full-stack developer building practical digital products.
             </p>
 
             {/* Paragraph Text */}
             <p className="mt-3 text-[16px] leading-relaxed text-muted sm:text-[18px] max-w-xl">
-              I build web applications across the frontend, backend, and Web3 stack —
+              I build web applications across the frontend, backend, and Web3 stack
               from product interfaces and APIs to blockchain integrations.
             </p>
 

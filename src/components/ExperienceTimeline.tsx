@@ -4,7 +4,7 @@ export function ExperienceTimeline() {
   return (
     <section
       id="experience"
-      className="scroll-mt-20 px-3 py-16 sm:px-4 md:px-6 md:py-20"
+      className="scroll-mt-20 px-3 py-8 sm:px-4 md:px-6 md:py-12"
     >
       <div className="mx-auto max-w-[1280px]">
         <div className="mb-4 md:mb-5" data-reveal>
@@ -19,21 +19,20 @@ export function ExperienceTimeline() {
         <ol className="relative space-y-0" data-reveal>
           {/* Vertical timeline line */}
           <div
-            className="absolute left-0 top-0 hidden h-full w-px bg-ink/15 md:block"
+            className="absolute left-0 top-0 h-full w-px bg-ink/15 md:left-0"
             aria-hidden="true"
           />
 
           {experience.map((item, index) => (
             <li
               key={item.org}
-              className={`grid gap-2 py-8 md:grid-cols-[200px_1fr] md:gap-12 md:pl-10 ${
+              className={`relative grid gap-2 py-6 pl-5 md:pl-10 md:grid-cols-[200px_1fr] md:gap-12 ${
                 index !== experience.length - 1 ? 'border-b border-ink/10' : ''
               }`}
             >
-              {/* Timeline dot — desktop only */}
+              {/* Timeline dot — plain, aligned with period text */}
               <div
-                className="absolute left-[-4.5px] hidden size-2.5 rounded-full bg-ink/40 ring-2 ring-white md:block"
-                style={{ top: `calc(${index * (100 / experience.length)}% + 36px)` }}
+                className="absolute left-[-3.5px] top-[27px] size-2 rounded-full bg-ink/50"
                 aria-hidden="true"
               />
 

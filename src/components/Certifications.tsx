@@ -4,10 +4,10 @@ import { ArrowIcon } from './icons'
 
 export function Certifications() {
   const [selectedCert, setSelectedCert] = useState<typeof certifications[0] | null>(null)
-  const displayedCerts = certifications.slice(0, 5)
+  const displayedCerts = certifications.slice(0, 6)
 
   return (
-    <section id="certifications" className="scroll-mt-20 px-3 py-16 sm:px-4 md:px-6 md:py-20">
+    <section id="certifications" className="scroll-mt-20 px-3 py-8 sm:px-4 md:px-6 md:py-12">
       <div className="mx-auto max-w-[1280px]">
         {/* Header */}
         <div className="mb-4 flex flex-wrap items-end justify-between gap-4 md:mb-5" data-reveal>
@@ -24,8 +24,8 @@ export function Certifications() {
           </div>
         </div>
 
-        {/* Masonry / Flexible Grid Layout */}
-        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3" data-reveal>
+        {/* Uniform Grid Layout — 1 col mobile / 2 col sm / 3 col lg */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
           {displayedCerts.map((cert, index) => {
             const certBgColors = [
               'bg-mint/25',
@@ -33,23 +33,24 @@ export function Certifications() {
               'bg-gold/25',
               'bg-lavender/25',
               'bg-blush/25',
+              'bg-mint/15',
             ]
             const bgClass = certBgColors[index % certBgColors.length]
 
             return (
               <div
                 key={cert.id}
-                className={`group mb-4 break-inside-avoid overflow-hidden rounded-[16px] ${bgClass} transition-all duration-300 hover:scale-[1.015]`}
+                className={`group overflow-hidden rounded-[16px] ${bgClass} transition-all duration-300 hover:scale-[1.015]`}
               >
-                {/* Flexible Image Container (Natural Aspect Ratio) */}
+                {/* Fixed Aspect Ratio Image — no cropping */}
                 <div
-                  className="relative cursor-pointer overflow-hidden bg-black/5"
+                  className="relative cursor-pointer overflow-hidden bg-black/5 aspect-video"
                   onClick={() => setSelectedCert(cert)}
                 >
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/10 flex items-center justify-center">
@@ -60,12 +61,12 @@ export function Certifications() {
                 </div>
 
                 {/* Details */}
-                <div className="p-5 sm:p-6">
+                <div className="p-4 sm:p-5">
                   <div className="flex items-center justify-between gap-2 text-xs font-sans font-medium text-muted">
                     <span>{cert.issuer}</span>
                     <span>{cert.date}</span>
                   </div>
-                  <h3 className="mt-2.5 font-serif text-xl leading-snug text-ink">
+                  <h3 className="mt-2 font-serif text-lg leading-snug text-ink">
                     {cert.title}
                   </h3>
                 </div>
@@ -75,7 +76,7 @@ export function Certifications() {
         </div>
 
         {/* View all certifications link */}
-        <div className="mt-10" data-reveal>
+        <div className="mt-5" data-reveal>
           <a
             href="https://linkedin.com/in/fahriza"
             target="_blank"

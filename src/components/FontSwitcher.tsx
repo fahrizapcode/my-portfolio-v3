@@ -279,7 +279,7 @@ export function FontSwitcherWidget({
                   fontFamily: comparingDefault ? defaultFont.cssValue : currentFont.cssValue,
                 }}
               >
-                Fahriza — Full-stack Developer
+                Fahriza Pratama — Full-stack Developer
               </p>
             </div>
           </div>

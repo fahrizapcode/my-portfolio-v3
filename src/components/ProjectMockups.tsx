@@ -321,7 +321,7 @@ export function ProfileMockup() {
     <PhoneFrame>
       <div className="p-4 text-center">
         <div className="mx-auto size-12 rounded-full bg-lavender" />
-        <p className="mt-2 text-sm">Fahriza</p>
+        <p className="mt-2 text-sm">Fahriza Pratama</p>
         <p className="text-[10px] text-muted">Campus walker</p>
       </div>
     </PhoneFrame>

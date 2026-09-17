@@ -1,5 +1,5 @@
 export const site = {
-  name: 'Fahriza',
+  name: 'Fahriza Pratama',
   role: 'Informatics student & full-stack developer',
   city: 'Bandung, Indonesia',
   email: 'hello@fahriza.dev',

@@ -42,7 +42,7 @@ export function ProjectCard({
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[260px] overflow-hidden rounded-[16px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${accentBg[project.accent]} ${
+        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${accentBg[project.accent]} ${
           reverse ? 'lg:order-2' : ''
         }`}
       >
@@ -59,7 +59,7 @@ export function ProjectCard({
 
       {/* Info panel */}
       <div
-        className={`flex flex-col justify-between rounded-[16px] p-6 sm:p-8 lg:col-span-5 ${accentInfoBg[project.accent]} ${
+        className={`flex flex-col justify-between rounded-[16px] p-4 sm:p-8 lg:col-span-5 ${accentInfoBg[project.accent]} ${
           reverse ? 'lg:order-1' : ''
         }`}
       >
@@ -71,15 +71,15 @@ export function ProjectCard({
             <p className="text-[11px] tracking-wide text-muted">{project.type}</p>
           </div>
 
-          <h3 className="mt-4 font-serif text-[40px] leading-[1.0] tracking-tight sm:text-[48px]">
+          <h3 className="mt-2 font-serif text-[28px] leading-[1.05] tracking-tight sm:mt-4 sm:text-[48px]">
             {project.name}
           </h3>
 
-          <p className="mt-4 text-[15px] leading-relaxed text-ink/75">
+          <p className="mt-2 text-[13px] leading-relaxed text-ink/75 sm:mt-4 sm:text-[15px]">
             {project.summary}
           </p>
 
-          <ul className="mt-5 flex flex-wrap gap-1.5">
+          <ul className="mt-3 flex flex-wrap gap-1.5 sm:mt-5">
             {project.stack.map((tech) => (
               <li
                 key={tech}
@@ -92,7 +92,7 @@ export function ProjectCard({
         </div>
 
         {/* Links */}
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-4 flex flex-wrap gap-4 sm:mt-8">
           {project.links.map((link) =>
             link.href.startsWith('/') ? (
               <Link

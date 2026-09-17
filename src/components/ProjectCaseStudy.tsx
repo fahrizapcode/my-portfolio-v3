@@ -32,11 +32,12 @@ function ScreenshotSlider({
     <div className="mt-12 flex flex-col gap-3">
       {/* 1-Column 1-Row Slide Container */}
       <div className="group relative overflow-hidden rounded-[24px] border border-line bg-paper p-3 shadow-md">
-        <div className="relative flex min-h-[300px] w-full items-center justify-center overflow-hidden rounded-[18px] bg-ink/5 sm:min-h-[440px]">
+        <div className="relative flex h-[340px] sm:h-[480px] md:h-[540px] w-full items-center justify-center overflow-hidden rounded-[18px] bg-ink/5 p-2">
           <img
+            key={screenshots[currentIndex]}
             src={screenshots[currentIndex]}
             alt={`${title} Screenshot ${currentIndex + 1}`}
-            className="h-auto max-h-[600px] w-full object-contain shadow-xs transition-all duration-300"
+            className="max-h-full max-w-full rounded-[10px] object-contain shadow-xs transition-opacity duration-300"
           />
         </div>
 

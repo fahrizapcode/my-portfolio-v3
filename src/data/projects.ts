@@ -96,8 +96,63 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'if-collab',
+    slug: 'bandung-verse',
     number: '02',
+    name: 'BandungVerse',
+    type: 'UI/UX Design',
+    summary:
+      "A responsive UI/UX design for a digital platform that helps users discover Bandung's destinations, culinary spots, technology, culture, and local stories through an interactive and visually engaging experience.",
+    stack: [
+      'Figma',
+      'UI/UX Design',
+      'Responsive Design',
+      'Design System',
+      'Wireframing',
+      'Prototyping',
+      'Information Architecture',
+      'User Flow',
+    ],
+    links: [
+      { label: 'Case Study', href: '/work/bandung-verse' },
+    ],
+    accent: 'gold',
+    overview:
+      'BandungVerse is a digital exploration platform designed to help users discover different aspects of Bandung, including tourism, culinary experiences, technology, culture, and local heritage. The interface was designed with a strong focus on visual storytelling, intuitive exploration, and responsive experiences across desktop and mobile devices. The design combines image-driven content, interactive maps, category navigation, and detailed destination pages to make discovering Bandung more engaging and accessible.',
+    problem:
+      "Information about Bandung's destinations, culinary spots, culture, and local attractions is often scattered across different platforms, making it difficult for users to discover and explore them through a single, cohesive experience. Many tourism interfaces also rely heavily on lists and conventional layouts, which can make exploration feel less engaging. BandungVerse addresses this by creating a visual-first experience that organizes different aspects of Bandung into clear categories while allowing users to explore places through maps, imagery, and detailed information.",
+    solution:
+      "Designed a visual-first exploration experience that organizes Bandung's destinations and local knowledge into several categories, including tourism, culinary, technology, and culture. The interface uses image-based cards, category navigation, interactive map views, search and filtering, and detailed destination pages to support different exploration behaviors. The design was created responsively for both desktop and mobile, with layouts and component arrangements adapted to each screen size while maintaining a consistent visual identity and user experience.",
+    architecture: [
+      {
+        title: 'Design Process',
+        nodes: ['Information Architecture', 'Wireframing', 'UI Design System', 'Responsive Layouts'],
+      },
+      {
+        title: 'Core Discovery Flow',
+        nodes: ['Category Navigation', 'Interactive Map', 'Spot Detail Page', 'Local Stories'],
+      },
+    ],
+    challenges: [
+      'Structuring diverse content categories (destinations, culinary, technology, culture) into a single cohesive discovery workflow.',
+      'Designing responsive UI components that scale seamlessly from desktop map views to mobile card layouts.',
+      'Establishing a visual design system that balances image-heavy media cards with readable typography.',
+    ],
+    outcome:
+      "Designed a complete responsive UI/UX system for BandungVerse covering the main exploration flow, map-based discovery, culinary and destination discovery, and detailed information pages. The design includes both desktop and mobile layouts, with reusable components and a consistent visual system across different content categories. The resulting interface provides a structured and visually engaging way for users to discover Bandung's places, culture, culinary experiences, and local stories.",
+    mockups: [],
+    screenshots: [
+      '/projects/bandung-verse/screenshots/Screenshot 2026-09-17 215018.png',
+      '/projects/bandung-verse/screenshots/Screenshot 2026-09-17 215035.png',
+      '/projects/bandung-verse/screenshots/Screenshot 2026-09-17 215048.png',
+      '/projects/bandung-verse/screenshots/Screenshot 2026-09-17 215111.png',
+      '/projects/bandung-verse/screenshots/Screenshot 2026-09-17 215123.png',
+      '/projects/bandung-verse/screenshots/Screenshot 2026-09-17 215146.png',
+      '/projects/bandung-verse/screenshots/Screenshot 2026-09-17 215207.png',
+    ],
+  },
+  {
+    slug: 'if-collab',
+    number: '03',
     name: 'IF-Collab',
     type: 'Full-stack web product',
     summary:
@@ -137,7 +192,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'yuk-mari',
-    number: '03',
+    number: '04',
     name: 'Yuk-Mari',
     type: 'Web platform + admin',
     summary:
@@ -181,7 +236,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'student-walker',
-    number: '04',
+    number: '05',
     name: 'StudentWalker',
     type: 'Mobile application',
     summary:

@@ -36,6 +36,7 @@ export function ProjectCard({
   index: number
 }) {
   const reverse = index % 2 === 1
+  const portrait = project.slug === 'student-walker'
 
   return (
     <article
@@ -45,7 +46,9 @@ export function ProjectCard({
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${
+        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] ${
+          portrait ? 'lg:col-span-4' : 'lg:col-span-7'
+        } ${
           project.screenshots && project.screenshots.length > 0
             ? 'bg-white border border-gray-200 p-1.5'
             : `${accentBg[project.accent]} p-3`
@@ -74,7 +77,9 @@ export function ProjectCard({
 
       {/* Info panel */}
       <div
-        className={`flex flex-col justify-between rounded-[16px] p-4 sm:p-8 lg:col-span-5 ${accentInfoBg[project.accent]} ${
+        className={`flex flex-col justify-between rounded-[16px] p-4 sm:p-8 ${
+          portrait ? 'lg:col-span-8' : 'lg:col-span-5'
+        } ${accentInfoBg[project.accent]} ${
           reverse ? 'lg:order-1' : ''
         }`}
       >

@@ -9,6 +9,7 @@ const accentBg: Record<Project['accent'], string> = {
   mint: 'bg-mint/35',
   gold: 'bg-gold/35',
   night: 'bg-plum/30',
+  navy: 'bg-navy/20',
 }
 
 const accentInfoBg: Record<Project['accent'], string> = {
@@ -16,6 +17,7 @@ const accentInfoBg: Record<Project['accent'], string> = {
   mint: 'bg-mint/25',
   gold: 'bg-gold/25',
   night: 'bg-plum/20',
+  navy: 'bg-navy/15',
 }
 
 const accentTag: Record<Project['accent'], string> = {
@@ -23,6 +25,7 @@ const accentTag: Record<Project['accent'], string> = {
   mint: 'bg-mint/50 text-ink/80',
   gold: 'bg-gold/45 text-ink/80',
   night: 'bg-plum/40 text-ink/80',
+  navy: 'bg-navy/30 text-cream/90',
 }
 
 export function ProjectCard({
@@ -42,10 +45,10 @@ export function ProjectCard({
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] p-3 transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${
+        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] lg:col-span-7 ${
           project.screenshots && project.screenshots.length > 0
-            ? 'bg-white border border-gray-200'
-            : accentBg[project.accent]
+            ? 'bg-white border border-gray-200 p-1.5'
+            : `${accentBg[project.accent]} p-3`
         } ${reverse ? 'lg:order-2' : ''}`}
       >
         <CornerMark />

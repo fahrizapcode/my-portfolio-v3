@@ -11,7 +11,7 @@ export type Project = {
   summary: string
   stack: string[]
   links: ProjectLink[]
-  accent: 'lavender' | 'mint' | 'night' | 'gold'
+  accent: 'lavender' | 'mint' | 'night' | 'gold' | 'navy'
   overview: string
   problem: string
   solution: string
@@ -52,7 +52,7 @@ export const projects: Project[] = [
       { label: 'Live Demo', href: 'https://xplover.example.com' },
       { label: 'Case Study', href: '/work/xplover' },
     ],
-    accent: 'mint',
+    accent: 'navy',
     overview:
       'Xplover Research Protocol (XCR) is a Web3 platform designed as a collaborative infrastructure for transforming scientific research into technology knowledge that is easier for the public to understand. The platform connects Researchers, Content Creators, Peer Reviewers, Visual Designers, and Administrators in a unified workflow, from research collection and structuring to educational content creation, quality control through peer review, and publication. Blockchain serves as an infrastructure layer for recording contributions, distributing incentives, and providing verifiable on-chain contribution records.',
     problem:
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     links: [
       { label: 'Case Study', href: '/work/bandung-verse' },
     ],
-    accent: 'gold',
+    accent: 'lavender',
     overview:
       'BandungVerse is a digital exploration platform designed to help users discover different aspects of Bandung, including tourism, culinary experiences, technology, culture, and local heritage. The interface was designed with a strong focus on visual storytelling, intuitive exploration, and responsive experiences across desktop and mobile devices. The design combines image-driven content, interactive maps, category navigation, and detailed destination pages to make discovering Bandung more engaging and accessible.',
     problem:
@@ -154,40 +154,60 @@ export const projects: Project[] = [
     slug: 'if-collab',
     number: '03',
     name: 'IF-Collab',
-    type: 'Full-stack web product',
+    type: 'Fullstack Project Management Platform',
     summary:
-      'A collaborative project management platform for Informatics students, designed around boards, tasks, roles, notifications, and team collaboration.',
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'dnd-kit'],
+      'A full-stack collaborative project management platform built for students and academic teams, featuring real-time kanban boards, role-based access, task management, notifications, and team invitation workflows.',
+    stack: [
+      'Next.js 16 (App Router, Turbopack)',
+      'React 19',
+      'TypeScript',
+      'Redux Toolkit',
+      'Socket.IO Client',
+      'Node.js & Express',
+      'Prisma ORM',
+      'PostgreSQL',
+      'Socket.IO',
+      'JWT & Cookie-Based Auth',
+      '@dnd-kit',
+      'Tailwind CSS v4',
+    ],
     links: [
       { label: 'GitHub', href: 'https://github.com/fahriza/if-collab' },
       { label: 'Live Demo', href: 'https://if-collab.example.com' },
       { label: 'Case Study', href: '/work/if-collab' },
     ],
-    accent: 'lavender',
+    accent: 'gold',
     overview:
-      'IF-Collab is a team workspace built for Informatics students who need a shared place to plan coursework and group projects. It organizes work into boards and tasks, with roles and notifications so progress stays visible without relying on scattered chat threads.',
+      'IF-Collab is a full-stack project management platform designed for student and academic team collaboration. The platform provides a centralized workspace where teams can organize projects as boards, manage tasks through a drag-and-drop Kanban interface, assign roles, invite members, and stay synchronized in real time via Socket.IO. Built with a monorepo structure consisting of a Next.js 16 frontend and a Node.js/Express backend, the application supports multi-role access (Student and Admin), real-time notifications, avatar management, deadline tracking, and activity logging — all within a modern glassmorphism dark-mode UI.',
     problem:
-      'Student groups often split work across chat apps, spreadsheets, and ad-hoc notes. Ownership is unclear, deadlines slip, and there is no single view of who is doing what. Existing project tools feel heavy for short academic collaborations.',
+      'Student project teams often lack a structured, dedicated workspace for managing collaborative work. Communication is scattered across chat apps, task tracking is done manually in spreadsheets or sticky notes, and there is no clear mechanism for role delegation, progress visibility, or deadline awareness. Existing tools like Jira or Trello are either too complex for academic contexts or lack features tailored to student workflows such as NIM/NIP-based authentication, academic role structures, and lightweight team onboarding through invitation links.',
     solution:
-      'I built a board-first product: kanban columns for workflow, task details for context, a dashboard for overview, and role-aware collaboration. The interface is structured for quick daily use — drag tasks, assign owners, and keep discussion next to the work.',
+      'IF-Collab provides a purpose-built collaboration platform that centers around Boards as shared project workspaces. Each board contains Columns and Tasks that can be created, reordered, and assigned to specific members with due dates and priorities. Members join through an invitation system with role-based permissions — Leader, Manager, Member, and Observer — each with different levels of access. Real-time updates via Socket.IO ensure that all members see changes instantly without refreshing. A notification system tracks relevant events such as task assignments, deadline reminders, and membership changes, while an admin panel provides platform-wide user and board management capabilities.',
     architecture: [
       {
-        title: 'Application flow',
-        nodes: ['Next.js UI', 'App state (Redux)', 'API layer', 'Persistence'],
+        title: 'Frontend',
+        nodes: ['Next.js 16', 'Redux Toolkit', 'Socket.IO Client', '@dnd-kit'],
+      },
+      {
+        title: 'Backend',
+        nodes: ['Node.js & Express', 'Prisma ORM', 'PostgreSQL', 'Socket.IO', 'JWT Auth'],
       },
     ],
     challenges: [
       'Keeping drag-and-drop board state consistent with the rest of the UI without racey updates.',
       'Modeling roles so permissions stay readable instead of scattered conditionals.',
-      'Designing task detail as a focused panel rather than a cluttered modal.',
+      'Designing real-time Socket.IO event handling to sync all members without performance degradation.',
     ],
     outcome:
-      'A working collaboration surface with boards, task detail, dashboard views, and team-oriented flows. The project is a product case — not a component demo — covering interaction, state, and how students actually move work across a board.',
+      'Built a production-ready full-stack collaborative platform with real-time Kanban board management, drag-and-drop task reordering, multi-role permission system (Leader, Manager, Member, Observer), team invitation workflows, Socket.IO-powered live updates, in-app notification system with deadline reminders, avatar upload, and a dedicated admin dashboard for platform management. The platform demonstrates end-to-end integration between a Next.js frontend with Redux state management and a RESTful Express API backed by PostgreSQL via Prisma ORM.',
     mockups: [
       { id: 'kanban', label: 'Kanban board' },
       { id: 'task', label: 'Task detail' },
       { id: 'dashboard', label: 'Dashboard' },
       { id: 'collab', label: 'Collaboration' },
+    ],
+    screenshots: [
+      '/projects/if-collab/screenshots/Screenshot 2026-09-18 112853.png',
     ],
   },
   {
@@ -237,41 +257,49 @@ export const projects: Project[] = [
   {
     slug: 'student-walker',
     number: '05',
-    name: 'StudentWalker',
-    type: 'Mobile application',
+    name: 'Student Walker',
+    type: 'Mobile Web App',
     summary:
-      'A mobile application project focused on real-time interaction and location-based experiences.',
-    stack: ['React Native', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'Socket.IO'],
+      'A mobile-first web application that connects students who need errands done on campus with other students (Stukers) who are willing to help — a peer-to-peer campus errand and delivery platform.',
+    stack: [
+      'Next.js 15 (App Router)',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS v4',
+      'Lucide React',
+      'Mobile-First Responsive Design',
+    ],
     links: [
       { label: 'GitHub', href: 'https://github.com/fahriza/student-walker' },
       { label: 'Case Study', href: '/work/student-walker' },
-      { label: 'Repository', href: 'https://github.com/fahriza/student-walker' },
     ],
-    accent: 'night',
+    accent: 'lavender',
     overview:
-      'StudentWalker is a mobile project for campus-scale interaction: people, places, and live updates. The interesting part is the real-time layer — location context plus Socket.IO events — sitting on a conventional Express and MySQL backend.',
+      'Student Walker (Stuker) is a mobile-first web application designed specifically for the campus environment. It connects students who need help with on-campus errands such as buying food from the canteen, picking up items, or delivering documents with fellow students called Stukers who are available and willing to help. The platform supports two distinct user roles: Customer (the student placing the order) and Stuker (the student fulfilling the order). Customers can submit orders with pickup and delivery locations, estimated costs, and delivery fees, while Stukers can browse available orders and accept them through a dedicated dashboard.',
     problem:
-      'Static campus apps go stale quickly. Students need presence, nearby activity, and live updates without refreshing a feed that was designed as a brochure.',
+      'On-campus life is often hectic. Students may be stuck in a lecture room, too far from the canteen, or unable to leave a class to run a quick errand. While food delivery apps exist, they are not designed for the hyper-local, low-cost context of a university campus. There is no existing peer-to-peer platform where students can request help from fellow students who are nearby and willing to earn some extra income through quick campus errands.',
     solution:
-      'I structured a React Native client around map and activity screens, with Express endpoints for persistent data and Socket.IO for live events. Location is treated as a feature input, not a marketing map animation.',
+      'Student Walker provides a dual-role platform where any student can register either as a Customer or a Stuker. Customers submit order requests including a description of the errand, estimated item cost, delivery fee, pickup location, and delivery destination. Once submitted, the system searches for available Stukers nearby. Stukers receive available orders on their dashboard and can view full order details before accepting. The platform includes a complete order flow: from placing an order, searching for a Stuker, waiting for acceptance, active delivery, to completion with order history and rating features for both roles.',
     architecture: [
       {
-        title: 'Realtime path',
-        nodes: ['React Native', 'Socket.IO', 'Express', 'MySQL'],
+        title: 'Frontend',
+        nodes: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS v4'],
       },
     ],
     challenges: [
-      'Keeping socket events aligned with REST resources so the UI does not drift from stored state.',
-      'Handling location permission and sparse GPS data without breaking the experience.',
-      'Designing mobile screens that stay readable with live updates instead of noisy toasts.',
+      'Designing dual-role UX (Customer & Stuker) within a single cohesive mobile-first interface.',
+      'Managing complete order state transitions from creation through search, acceptance, active delivery, and completion.',
+      'Building a mobile-first layout with fixed bottom navigation optimized for small screens.',
     ],
     outcome:
-      'A mobile UI set and a backend shape for real-time, location-aware interaction. This case study presents the product structure and screens; it does not invent usage metrics.',
-    mockups: [
-      { id: 'map', label: 'Map & nearby' },
-      { id: 'feed', label: 'Live activity' },
-      { id: 'profile', label: 'Profile' },
-      { id: 'chat', label: 'Realtime thread' },
+      'Built a fully functional mobile-first frontend prototype for a campus peer-to-peer errand platform. The app features dual-role UX for Customers and Stukers, a complete order flow (create order, search stuker, waiting, active, complete), a Stuker order management dashboard with order detail modals, order history, user profile pages, NIM-based authentication (login and register), and a notification system. The design prioritizes mobile usability with a fixed bottom navigation and clean card-based layouts optimized for small screens.',
+    mockups: [],
+    screenshots: [
+      '/projects/student-walker/screenshots/Screenshot 2026-09-18 141202.png',
+      '/projects/student-walker/screenshots/Screenshot 2026-09-18 141229.png',
+      '/projects/student-walker/screenshots/Screenshot 2026-09-18 141239.png',
+      '/projects/student-walker/screenshots/Screenshot 2026-09-18 141246.png',
+      '/projects/student-walker/screenshots/Screenshot 2026-09-18 141301.png',
     ],
   },
 ]

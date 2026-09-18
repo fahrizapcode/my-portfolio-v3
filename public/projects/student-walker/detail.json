@@ -1,0 +1,24 @@
+﻿{
+  "id": "03 - Mobile Web App",
+  "judul": "Student Walker",
+  "deskripsi": "A mobile-first web application that connects students who need errands done on campus with other students (Stukers) who are willing to help — a peer-to-peer campus errand and delivery platform.",
+  "screenshots": [
+    "/projects/student-walker/screenshots/Screenshot 2026-09-18 141202.png",
+    "/projects/student-walker/screenshots/Screenshot 2026-09-18 141229.png",
+    "/projects/student-walker/screenshots/Screenshot 2026-09-18 141239.png",
+    "/projects/student-walker/screenshots/Screenshot 2026-09-18 141246.png",
+    "/projects/student-walker/screenshots/Screenshot 2026-09-18 141301.png"
+  ],
+  "overview": "Student Walker (Stuker) is a mobile-first web application designed specifically for the campus environment. It connects students who need help with on-campus errands such as buying food from the canteen, picking up items, or delivering documents with fellow students called Stukers who are available and willing to help. The platform supports two distinct user roles: Customer (the student placing the order) and Stuker (the student fulfilling the order). Customers can submit orders with pickup and delivery locations, estimated costs, and delivery fees, while Stukers can browse available orders and accept them through a dedicated dashboard.",
+  "problem": "On-campus life is often hectic. Students may be stuck in a lecture room, too far from the canteen, or unable to leave a class to run a quick errand. While food delivery apps exist, they are not designed for the hyper-local, low-cost context of a university campus. There is no existing peer-to-peer platform where students can request help from fellow students who are nearby and willing to earn some extra income through quick campus errands.",
+  "solution": "Student Walker provides a dual-role platform where any student can register either as a Customer or a Stuker. Customers submit order requests including a description of the errand, estimated item cost, delivery fee, pickup location, and delivery destination. Once submitted, the system searches for available Stukers nearby. Stukers receive available orders on their dashboard and can view full order details before accepting. The platform includes a complete order flow: from placing an order, searching for a Stuker, waiting for acceptance, active delivery, to completion with order history and rating features for both roles.",
+  "techStack": [
+    "Next.js 15 (App Router)",
+    "React 19",
+    "TypeScript",
+    "Tailwind CSS v4",
+    "Lucide React",
+    "Mobile-First Responsive Design"
+  ],
+  "outcome": "Built a fully functional mobile-first frontend prototype for a campus peer-to-peer errand platform. The app features dual-role UX for Customers and Stukers, a complete order flow (create order, search stuker, waiting, active, complete), a Stuker order management dashboard with order detail modals, order history, user profile pages, NIM-based authentication (login and register), and a notification system. The design prioritizes mobile usability with a fixed bottom navigation and clean card-based layouts optimized for small screens."
+}

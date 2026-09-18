@@ -18,6 +18,8 @@
   --color-gold: #e8c24d;
   --color-charcoal: #3e3e3e;
   --color-night: #171717;
+  --color-navy: #1e3a5f;
+  --color-navy-mid: #2d5a8e;
 }
 
 @layer base {

@@ -1,0 +1,29 @@
+﻿{
+    "id": "02 - Fullstack Project Management Platform",
+    "judul": "IF-Collab",
+    "deskripsi": "A full-stack collaborative project management platform built for students and academic teams, featuring real-time kanban boards, role-based access, task management, notifications, and team invitation workflows.",
+    "screenshots": [
+        "/projects/if-collab/screenshots/Screenshot 2026-09-18 112853.png"
+    ],
+    "overview": "IF-Collab is a full-stack project management platform designed for student and academic team collaboration. The platform provides a centralized workspace where teams can organize projects as boards, manage tasks through a drag-and-drop Kanban interface, assign roles, invite members, and stay synchronized in real time via Socket.IO. Built with a monorepo structure consisting of a Next.js 16 frontend and a Node.js/Express backend, the application supports multi-role access (Student and Admin), real-time notifications, avatar management, deadline tracking, and activity logging — all within a modern glassmorphism dark-mode UI.",
+    "problem": "Student project teams often lack a structured, dedicated workspace for managing collaborative work. Communication is scattered across chat apps, task tracking is done manually in spreadsheets or sticky notes, and there is no clear mechanism for role delegation, progress visibility, or deadline awareness. Existing tools like Jira or Trello are either too complex for academic contexts or lack features tailored to student workflows such as NIM/NIP-based authentication, academic role structures, and lightweight team onboarding through invitation links.",
+    "solution": "IF-Collab provides a purpose-built collaboration platform that centers around Boards as shared project workspaces. Each board contains Columns and Tasks that can be created, reordered, and assigned to specific members with due dates and priorities. Members join through an invitation system with role-based permissions — Leader, Manager, Member, and Observer — each with different levels of access. Real-time updates via Socket.IO ensure that all members see changes instantly without refreshing. A notification system tracks relevant events such as task assignments, deadline reminders, and membership changes, while an admin panel provides platform-wide user and board management capabilities.",
+    "techStack": [
+        "Next.js 16 (App Router, Turbopack)",
+        "React 19",
+        "TypeScript",
+        "Redux Toolkit",
+        "Socket.IO Client",
+        "Node.js & Express",
+        "Prisma ORM",
+        "PostgreSQL",
+        "Socket.IO",
+        "JWT & Cookie-Based Authentication",
+        "Zod Validation",
+        "Winston Logger",
+        "@dnd-kit (Drag & Drop)",
+        "Tailwind CSS v4",
+        "Glassmorphism Dark UI"
+    ],
+    "outcome": "Built a production-ready full-stack collaborative platform with real-time Kanban board management, drag-and-drop task reordering, multi-role permission system (Leader, Manager, Member, Observer), team invitation workflows, Socket.IO-powered live updates, in-app notification system with deadline reminders, avatar upload, and a dedicated admin dashboard for platform management. The platform demonstrates end-to-end integration between a Next.js frontend with Redux state management and a RESTful Express API backed by PostgreSQL via Prisma ORM."
+}

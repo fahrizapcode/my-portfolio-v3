@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCertificates, type Certificate } from '../hooks/useCertificates'
-import { ArrowIcon } from './icons'
-import { PdfThumbnail } from './PdfThumbnail'
+import { ArrowIcon } from '../components/icons'
+import { PdfThumbnail } from '../components/PdfThumbnail'
 
-// Cycle through accent-coloured backgrounds for visual variety
+type FilterCategory = 'All' | 'Hard Skill' | 'Soft Skill'
+
 const CARD_BG = [
   'bg-mint/25',
   'bg-plum/25',
@@ -22,7 +23,6 @@ function isPdfFile(file: string) {
   return file.toLowerCase().endsWith('.pdf')
 }
 
-// ─── Thumbnail shown inside each card ────────────────────────────────────────
 function CertThumbnail({ cert }: { cert: Certificate }) {
   if (isPdfFile(cert.file)) {
     return (
@@ -32,7 +32,6 @@ function CertThumbnail({ cert }: { cert: Certificate }) {
       />
     )
   }
-
   return (
     <img
       src={cert.file}
@@ -43,7 +42,6 @@ function CertThumbnail({ cert }: { cert: Certificate }) {
   )
 }
 
-// ─── Modal — PDF uses iframe, images use img ──────────────────────────────────
 function CertModal({
   cert,
   onClose,
@@ -52,7 +50,6 @@ function CertModal({
   onClose: () => void
 }) {
   const isPdf = isPdfFile(cert.file)
-
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-night/80 p-4 backdrop-blur-md"
@@ -60,13 +57,10 @@ function CertModal({
     >
       <div
         className={`relative overflow-hidden rounded-[24px] bg-paper shadow-2xl ${
-          isPdf
-            ? 'w-full max-w-4xl'
-            : 'max-h-[90vh] max-w-4xl'
+          isPdf ? 'w-full max-w-4xl' : 'max-h-[90vh] max-w-4xl'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-night/70 text-cream transition-opacity hover:opacity-80"
@@ -85,14 +79,10 @@ function CertModal({
             />
             <div className="flex items-center justify-between gap-3 px-6 py-4">
               <div>
-                <span
-                  className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}
-                >
+                <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}>
                   {cert.category}
                 </span>
-                <h3 className="mt-1.5 font-serif text-xl text-ink">
-                  {cert.title}
-                </h3>
+                <h3 className="mt-1.5 font-serif text-xl text-ink">{cert.title}</h3>
               </div>
               <a
                 href={cert.file}
@@ -113,14 +103,10 @@ function CertModal({
               className="max-h-[75vh] w-full object-contain rounded-[16px]"
             />
             <div className="mt-4 p-2 text-center">
-              <span
-                className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}
-              >
+              <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}>
                 {cert.category}
               </span>
-              <h3 className="mt-1.5 font-serif text-2xl text-ink">
-                {cert.title}
-              </h3>
+              <h3 className="mt-1.5 font-serif text-2xl text-ink">{cert.title}</h3>
             </div>
           </div>
         )}
@@ -129,50 +115,65 @@ function CertModal({
   )
 }
 
-// ─── Main section ─────────────────────────────────────────────────────────────
-export function Certifications() {
+const FILTERS: FilterCategory[] = ['All', 'Hard Skill', 'Soft Skill']
+
+export function Certificates() {
   const { certificates, loading } = useCertificates()
+  const [activeFilter, setActiveFilter] = useState<FilterCategory>('All')
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null)
 
-  // Landing page always shows first 5 — change order in JSON to change featured
-  const featured = certificates.slice(0, 5)
+  const filtered =
+    activeFilter === 'All'
+      ? certificates
+      : certificates.filter((c) => c.category === activeFilter)
+
+  const counts = {
+    All: certificates.length,
+    'Hard Skill': certificates.filter((c) => c.category === 'Hard Skill').length,
+    'Soft Skill': certificates.filter((c) => c.category === 'Soft Skill').length,
+  }
 
   return (
-    <section
-      id="certifications"
-      className="scroll-mt-20 px-3 py-8 sm:px-4 md:px-6 md:py-12"
-    >
+    <section className="px-3 py-10 sm:px-4 md:px-6 md:py-16">
       <div className="mx-auto max-w-[1280px]">
         {/* Header */}
-        <div
-          className="mb-4 flex flex-wrap items-end justify-between gap-4 md:mb-5"
-          data-reveal
-        >
-          <div>
-            <p className="font-sans text-[11px] font-semibold tracking-widest text-muted">
-              Qualifications &amp; Achievements
-            </p>
-            <h2 className="mt-2 font-serif text-4xl tracking-tight sm:text-5xl">
-              Certifications
-            </h2>
-            <p className="mt-2 text-base text-muted sm:text-lg">
-              Official credentials, course completions, and technical
-              qualifications.
-            </p>
-          </div>
+        <p className="font-sans text-[11px] font-semibold tracking-widest text-muted">
+          Qualifications &amp; Achievements
+        </p>
+        <h1 className="mt-2 font-serif text-5xl tracking-tight md:text-6xl">
+          All Certifications
+        </h1>
+        <p className="mt-2 max-w-lg text-muted">
+          Official credentials, course completions, and technical qualifications.
+        </p>
+
+        {/* Filter tabs */}
+        <div className="mt-6 flex flex-wrap gap-2">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActiveFilter(f)}
+              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 ${
+                activeFilter === f
+                  ? 'bg-ink text-cream'
+                  : 'bg-ink/8 text-ink/60 hover:bg-ink/15 hover:text-ink'
+              }`}
+            >
+              {f}
+              <span className={`ml-1.5 text-[11px] ${activeFilter === f ? 'opacity-60' : 'opacity-40'}`}>
+                {counts[f]}
+              </span>
+            </button>
+          ))}
         </div>
 
-        {/* Certificate grid — 1 col / 2 col sm / 3 col lg */}
+        {/* Grid */}
         {loading ? (
-          /* Skeleton cards while fetching */
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div
-                key={i}
-                className="overflow-hidden rounded-[16px] bg-ink/5 animate-pulse"
-              >
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="overflow-hidden rounded-[16px] bg-ink/5 animate-pulse">
                 <div className="aspect-video bg-ink/10" />
-                <div className="p-4 sm:p-5 space-y-2">
+                <div className="p-4 space-y-2">
                   <div className="h-3 w-16 rounded bg-ink/10" />
                   <div className="h-4 w-3/4 rounded bg-ink/10" />
                 </div>
@@ -180,41 +181,32 @@ export function Certifications() {
             ))}
           </div>
         ) : (
-          <div
-            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-            data-reveal
-          >
-            {featured.map((cert, index) => {
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {filtered.map((cert, index) => {
               const bgClass = CARD_BG[index % CARD_BG.length]
               return (
                 <div
                   key={cert.file}
                   className={`group overflow-hidden rounded-[16px] ${bgClass} transition-all duration-300 hover:scale-[1.015]`}
                 >
-                  {/* Thumbnail area */}
                   <div
                     className="relative aspect-video cursor-pointer overflow-hidden bg-black/5"
                     onClick={() => setSelectedCert(cert)}
                   >
                     <CertThumbnail cert={cert} />
-                    {/* Hover overlay */}
                     <div className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/10 flex items-center justify-center">
                       <span className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-ink opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 shadow-sm">
                         {isPdfFile(cert.file) ? 'View Certificate' : 'Enlarge Certificate'}
                       </span>
                     </div>
                   </div>
-
-                  {/* Card details */}
                   <div className="p-4 sm:p-5">
-                    <span
-                      className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}
-                    >
+                    <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}>
                       {cert.category}
                     </span>
-                    <h3 className="mt-2 font-serif text-lg leading-snug text-ink">
+                    <h2 className="mt-2 font-serif text-lg leading-snug text-ink">
                       {cert.title}
-                    </h3>
+                    </h2>
                   </div>
                 </div>
               )
@@ -222,14 +214,13 @@ export function Certifications() {
           </div>
         )}
 
-        {/* View all link */}
-        <div className="mt-5" data-reveal>
+        {/* Back link */}
+        <div className="mt-10">
           <Link
-            to="/certificates"
-            className="inline-flex items-center gap-2 text-sm text-ink transition-opacity hover:opacity-60"
+            to="/#certifications"
+            className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-ink"
           >
-            View all certifications
-            <ArrowIcon className="size-3.5" />
+            ← Back to home
           </Link>
         </div>
       </div>

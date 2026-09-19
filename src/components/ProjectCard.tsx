@@ -56,13 +56,29 @@ export function ProjectCard({
       >
         <CornerMark />
         {project.screenshots && project.screenshots.length > 0 ? (
-          <div className="flex h-full min-h-[180px] sm:min-h-[360px] w-full items-center justify-center overflow-hidden rounded-[12px] bg-white p-1">
-            <img
-              src={project.screenshots[0]}
-              alt={project.name}
-              className="max-h-full max-w-full rounded-[8px] object-contain border border-gray-200"
-            />
-          </div>
+          portrait ? (
+            /* Mobile project: tampilkan 3 screenshot berjajar */
+            <div className="flex h-full min-h-[180px] sm:min-h-[360px] w-full items-end justify-center gap-2 overflow-hidden rounded-[12px] bg-gray-50 px-3 pb-0 pt-4">
+              {project.screenshots.slice(0, 3).map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`${project.name} screenshot ${i + 1}`}
+                  className={`w-1/3 rounded-t-[10px] object-cover object-top border border-gray-200 shadow-sm flex-shrink-0 ${
+                    i === 1 ? 'h-[85%]' : 'h-[75%]'
+                  }`}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="flex h-full min-h-[180px] sm:min-h-[360px] w-full items-center justify-center overflow-hidden rounded-[12px] bg-white p-1">
+              <img
+                src={project.screenshots[0]}
+                alt={project.name}
+                className="max-h-full max-w-full rounded-[8px] object-contain border border-gray-200"
+              />
+            </div>
+          )
         ) : (
           <ProjectMockup id={featuredMockupId(project.slug)} className="h-full" />
         )}
@@ -111,19 +127,12 @@ export function ProjectCard({
           </ul>
         </div>
 
-        {/* Links */}
+        {/* Links — hanya GitHub dan Detail */}
         <div className="mt-4 flex flex-wrap gap-4 sm:mt-8">
-          {project.links.map((link) =>
-            link.href.startsWith('/') ? (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="inline-flex items-center gap-1.5 text-sm text-ink transition-opacity hover:opacity-60"
-              >
-                {link.label}
-                <ArrowIcon className="size-3.5" />
-              </Link>
-            ) : (
+          {/* GitHub link */}
+          {project.links
+            .filter((l) => l.label === 'GitHub')
+            .map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -134,8 +143,15 @@ export function ProjectCard({
                 {link.label}
                 <ArrowIcon className="size-3.5" />
               </a>
-            ),
-          )}
+            ))}
+          {/* Detail / Case Study link */}
+          <Link
+            to={`/work/${project.slug}`}
+            className="inline-flex items-center gap-1.5 text-sm text-ink transition-opacity hover:opacity-60"
+          >
+            Detail
+            <ArrowIcon className="size-3.5" />
+          </Link>
         </div>
       </div>
     </article>

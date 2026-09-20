@@ -134,7 +134,7 @@ export function Certificates() {
           Qualifications &amp; Achievements
         </p>
         <h1 className="mt-2 font-serif text-5xl tracking-tight md:text-6xl">
-          All Certifications
+          All Certifications {certificates.length > 0 ? `(${certificates.length})` : ''}
         </h1>
         <p className="mt-2 max-w-lg text-muted">
           Official credentials, course completions, and technical qualifications.

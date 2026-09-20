@@ -62,7 +62,7 @@ export function ProjectCard({
               {project.screenshots.slice(0, 3).map((src, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center flex-1 max-w-[31%] h-full max-h-[92%] transition-transform duration-300 group-hover:scale-[1.03]"
+                  className="flex items-center justify-center flex-1 max-w-[26%] h-full max-h-[86%] transition-transform duration-300 group-hover:scale-[1.03]"
                 >
                   <img
                     src={src}

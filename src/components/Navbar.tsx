@@ -20,13 +20,13 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-300 ${
+      className={`sticky top-0 z-40 px-3 sm:px-4 md:px-6 transition-all duration-300 ${
         scrolled
           ? 'border-b border-line/60 bg-cream/95 shadow-[0_1px_12px_rgba(22,21,19,0.06)] backdrop-blur-md'
           : 'border-b border-transparent bg-cream/0'
       }`}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-3 md:px-6">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between py-3">
         <Link
           to="/"
           className="font-serif text-xl tracking-tight text-ink transition-opacity hover:opacity-70"

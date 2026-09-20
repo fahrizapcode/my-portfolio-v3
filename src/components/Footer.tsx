@@ -3,7 +3,7 @@ import { GitHubIcon, InstagramIcon, LinkedInIcon } from './icons'
 
 export function Footer() {
   return (
-    <footer className="border-t border-line px-4 py-8 md:px-6 md:py-10">
+    <footer className="border-t border-line px-3 py-8 sm:px-4 md:px-6 md:py-10">
       <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <span className="font-serif text-base text-ink">{site.name}</span>

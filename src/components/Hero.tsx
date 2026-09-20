@@ -14,24 +14,24 @@ export function Hero() {
           data-reveal
         >
           {/* KOLOM KIRI: 3 Cards Puzzle Menyambung Foto me.png */}
-          <div className="w-full max-w-[480px] sm:max-w-[520px] mx-auto lg:mx-0">
+          <div className="w-full max-w-[300px] xs:max-w-[360px] sm:max-w-[520px] mx-auto lg:mx-0">
             <Portrait variant="puzzle" />
           </div>
 
           {/* KOLOM KANAN: Text & CTA */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center min-w-0">
             {/* Title */}
-            <h1 className="font-serif text-[42px] leading-[0.95] tracking-tight sm:text-[70px] lg:text-[84px] -ml-0.5 sm:-ml-1 lg:-ml-1.5">
+            <h1 className="font-serif text-[32px] xs:text-[38px] sm:text-[70px] lg:text-[84px] leading-[0.98] tracking-tight -ml-0.5 sm:-ml-1 lg:-ml-1.5 break-words min-w-0">
               {site.name}
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-3 text-[18px] leading-snug font-medium text-ink sm:text-[22px] lg:text-[27px] max-w-2xl">
+            <p className="mt-3 text-[17px] sm:text-[22px] lg:text-[27px] leading-snug font-medium text-ink max-w-2xl min-w-0">
               Full-stack developer building practical digital products.
             </p>
 
             {/* Paragraph Text */}
-            <p className="mt-3 text-[16px] leading-relaxed text-muted sm:text-[18px] max-w-xl">
+            <p className="mt-3 text-[15px] sm:text-[18px] leading-relaxed text-muted max-w-xl min-w-0">
               I build web applications across the frontend, backend, and Web3 stack
               from product interfaces and APIs to blockchain integrations.
             </p>
@@ -55,13 +55,20 @@ export function Hero() {
                 GitHub
               </a>
             </div>
+
+            {/* Mobile-only Tech Marquee: Raised right under CTA buttons so it's visible on first view */}
+            <div className="mt-5 sm:hidden w-full overflow-hidden max-w-full">
+              <TechMarquee />
+            </div>
           </div>
         </div>
 
         {/* Feature Cards Grid: Floating Tech Marquee + 3 Conceptual Cards */}
         <div className="mt-4 sm:mt-6 md:mt-8 grid grid-cols-1 gap-2.5 sm:gap-3.5 items-stretch sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5" data-reveal>
-          {/* Floating Technology Showcase */}
-          <TechMarquee />
+          {/* Desktop/Tablet Floating Technology Showcase */}
+          <div className="hidden sm:block sm:col-span-2 md:col-span-4 lg:col-span-2">
+            <TechMarquee />
+          </div>
 
           {/* CARD 01 — PRODUCT (Desktop / Tablet only) */}
           <article className="group relative hidden sm:flex col-span-1 min-h-[230px] flex-col justify-between overflow-hidden rounded-[16px] bg-mint/90 p-5 text-ink transition-transform duration-300 hover:scale-[1.015]">

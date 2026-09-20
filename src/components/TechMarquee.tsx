@@ -130,55 +130,76 @@ const row1: TechItem[] = [
   { name: 'Next.js', icon: NextjsIcon },
   { name: 'TypeScript', icon: TypeScriptIcon },
   { name: 'JavaScript', icon: JavaScriptIcon },
-  { name: 'Node.js', icon: NodejsIcon },
-  { name: 'Express', icon: ExpressIcon },
   { name: 'Tailwind CSS', icon: TailwindIcon },
   { name: 'Vite', icon: ViteIcon },
 ]
 
 const row2: TechItem[] = [
+  { name: 'Node.js', icon: NodejsIcon },
+  { name: 'Express', icon: ExpressIcon },
+  { name: 'FastAPI', icon: FastAPIIcon },
   { name: 'MySQL', icon: MysqlIcon },
+  { name: 'PostgreSQL', icon: PostgresIcon },
+  { name: 'Docker', icon: DockerIcon },
+]
+
+const row3: TechItem[] = [
   { name: 'Solidity', icon: SolidityIcon },
   { name: 'Ethereum', icon: EthereumIcon },
+  { name: 'Ethers.js', icon: EthersIcon },
   { name: 'IPFS', icon: IpfsIcon },
   { name: 'Figma', icon: FigmaIcon },
   { name: 'Git', icon: GitIcon },
   { name: 'GitHub', icon: GithubBrandIcon },
-  { name: 'Docker', icon: DockerIcon },
 ]
 
 export function TechMarquee() {
   return (
-    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[130px] sm:min-h-[230px] overflow-hidden py-1.5 sm:py-4 select-none sm:col-span-2 md:col-span-4 lg:col-span-2">
+    <div className="group relative col-span-1 flex flex-col justify-center h-full min-h-[160px] sm:min-h-[230px] overflow-hidden py-1 sm:py-3 select-none sm:col-span-2 md:col-span-4 lg:col-span-2" style={{ maxWidth: '100%', contain: 'paint' }}>
       {/* Edge gradient masks for smooth fade */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 sm:w-10 bg-gradient-to-r from-cream to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 sm:w-10 bg-gradient-to-l from-cream to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 sm:w-10 bg-gradient-to-r from-cream to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 sm:w-10 bg-gradient-to-l from-cream to-transparent" />
 
-      <div className="flex flex-col gap-2 sm:gap-4 py-0.5 sm:py-1">
-        {/* Row 1 */}
-        <div className="flex w-max gap-2.5 sm:gap-3.5 animate-marquee-right group-hover:[animation-play-state:paused]">
-          {[...row1, ...row1].map((tech, idx) => (
+      <div className="flex flex-col gap-2 sm:gap-2.5 py-0.5">
+        {/* Row 1 — Right */}
+        <div className="flex w-max gap-2 sm:gap-3 animate-marquee-right group-hover:[animation-play-state:paused]">
+          {[...row1, ...row1, ...row1].map((tech, idx) => (
             <div
               key={`r1-${tech.name}-${idx}`}
-              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 py-2 sm:px-4 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl bg-paper px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
-              <tech.icon className="size-4 shrink-0 sm:size-6" />
-              <span className="whitespace-nowrap text-xs font-medium text-ink/90 sm:text-sm">
+              <tech.icon className="size-6 shrink-0 sm:size-7" />
+              <span className="whitespace-nowrap text-[11px] font-medium text-ink/90 sm:text-xs">
                 {tech.name}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Row 2 */}
-        <div className="flex w-max gap-2.5 sm:gap-3.5 animate-marquee-right-slow group-hover:[animation-play-state:paused]">
-          {[...row2, ...row2].map((tech, idx) => (
+        {/* Row 2 — Left */}
+        <div className="flex w-max gap-2 sm:gap-3 animate-marquee-left group-hover:[animation-play-state:paused]">
+          {[...row2, ...row2, ...row2].map((tech, idx) => (
             <div
               key={`r2-${tech.name}-${idx}`}
-              className="flex items-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-paper px-3 py-2 sm:px-4 sm:py-3 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl bg-paper px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
             >
-              <tech.icon className="size-4 shrink-0 sm:size-6" />
-              <span className="whitespace-nowrap text-xs font-medium text-ink/90 sm:text-sm">
+              <tech.icon className="size-6 shrink-0 sm:size-7" />
+              <span className="whitespace-nowrap text-[11px] font-medium text-ink/90 sm:text-xs">
+                {tech.name}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 3 — Right Slow */}
+        <div className="flex w-max gap-2 sm:gap-3 animate-marquee-right-slow group-hover:[animation-play-state:paused]">
+          {[...row3, ...row3, ...row3].map((tech, idx) => (
+            <div
+              key={`r3-${tech.name}-${idx}`}
+              className="flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl bg-paper px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 shadow-xs border border-ink/8 transition-all duration-200 hover:scale-105 hover:shadow-md"
+            >
+              <tech.icon className="size-6 shrink-0 sm:size-7" />
+              <span className="whitespace-nowrap text-[11px] font-medium text-ink/90 sm:text-xs">
                 {tech.name}
               </span>
             </div>

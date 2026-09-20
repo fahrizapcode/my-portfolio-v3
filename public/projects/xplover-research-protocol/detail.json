@@ -24,8 +24,7 @@
         "Hardhat",
         "Ethers.js v6",
         "Arbitrum Sepolia Testnet",
-        "JWT & Cookie-Based Authentication",
-        "Cyberpunk Glassmorphism UI"
+        "JWT & Cookie-Based Authentication"
     ],
     "outcome": "Built an end-to-end Web3/DeSci full-stack prototype implementing a research-to-content workflow. The platform includes multi-role workflows for Researchers, Content Creators, Peer Reviewers, Visual Designers, and Administrators; structured research management; content transformation workflows; peer-review consensus based on eight evaluation dimensions with a minimum of five reviewers; and blockchain-based token incentives and contribution attestations on Arbitrum Sepolia. The prototype demonstrates how research, collaborative quality control, knowledge dissemination, and verifiable contributor incentives can be integrated into a single platform."
 }

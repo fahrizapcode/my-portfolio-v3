@@ -46,8 +46,8 @@ export function ProjectCard({
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[220px] sm:min-h-[380px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] ${
-          portrait ? 'lg:col-span-7' : 'lg:col-span-7'
+        className={`group relative overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] ${
+          portrait ? 'lg:col-span-7 min-h-[215px] sm:min-h-[360px]' : 'lg:col-span-7 min-h-[220px] sm:min-h-[380px]'
         } ${
           project.screenshots && project.screenshots.length > 0
             ? 'bg-white border border-gray-200/80 p-1.5'
@@ -58,16 +58,16 @@ export function ProjectCard({
         {project.screenshots && project.screenshots.length > 0 ? (
           portrait ? (
             /* Mobile project: 3 screenshot hp melayang sejajar & presisi */
-            <div className="flex h-full min-h-[240px] sm:min-h-[360px] w-full items-center justify-center gap-3 sm:gap-5 overflow-hidden rounded-[12px] bg-slate-100/80 p-3 sm:p-5">
+            <div className="flex h-full w-full items-center justify-center gap-2 sm:gap-4 overflow-hidden rounded-[12px] bg-slate-100/80 p-2 sm:p-4">
               {project.screenshots.slice(0, 3).map((src, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center flex-1 max-w-[28%] sm:max-w-[29%] h-[92%] aspect-[9/19] overflow-hidden rounded-[10px] sm:rounded-[14px] border border-black/10 shadow-md bg-white transition-transform duration-300 group-hover:scale-[1.03]"
+                  className="flex items-center justify-center flex-1 max-w-[31%] sm:max-w-[29%] h-full aspect-[9/18.5] overflow-hidden rounded-[8px] sm:rounded-[14px] border border-black/10 shadow-md bg-white p-[2px] sm:p-1 transition-transform duration-300 group-hover:scale-[1.03]"
                 >
                   <img
                     src={src}
                     alt={`${project.name} screenshot ${i + 1}`}
-                    className="h-full w-full object-cover object-top"
+                    className="h-full w-full object-cover object-top rounded-[6px] sm:rounded-[10px]"
                   />
                 </div>
               ))}

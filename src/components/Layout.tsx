@@ -25,7 +25,7 @@ export function Layout() {
   useScrollReveal()
 
   return (
-    <div className="min-h-svh" key={pathname}>
+    <div className="min-h-svh overflow-x-hidden" key={pathname}>
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-cream"

@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
-import { ArrowIcon } from './icons'
 import { ProjectCard } from './ProjectCard'
 
 export function ProjectGrid({
@@ -33,16 +31,6 @@ export function ProjectGrid({
           {list.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
-        </div>
-
-        <div className="mt-6" data-reveal>
-          <Link
-            to="/work"
-            className="inline-flex items-center gap-2 text-sm text-ink transition-opacity hover:opacity-60"
-          >
-            View all projects
-            <ArrowIcon className="size-3.5" />
-          </Link>
         </div>
       </div>
     </section>

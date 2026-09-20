@@ -24,40 +24,40 @@ export function Portrait({ className = '', variant = 'puzzle' }: PortraitProps) 
   // 3-Card Connected Puzzle Portrait Component
   return (
     <div
-      className={`group relative flex w-full max-w-[480px] sm:max-w-[520px] aspect-[4/3.5] gap-1.5 sm:gap-2 ${className}`}
+      className={`group relative flex w-full aspect-[4/3.5] gap-1.5 sm:gap-2 ${className}`}
     >
       {/* KOLOM KIRI: 2 Cards Vertikal Atas & Bawah */}
       <div className="flex w-[38%] flex-col gap-1.5 sm:gap-2 h-full shrink-0">
         {/* CARD 1: TOP LEFT (bg-mint, rounded-20px) */}
         <div className="relative flex-1 overflow-hidden rounded-[18px] sm:rounded-[20px] bg-mint transition-transform duration-300 hover:scale-[1.01]">
-          {/* Puzzle Image Slice: Top-Left (Shifted UP slightly so head/hair shows more) */}
+          {/* Puzzle Image Slice: Top-Left */}
           <img
             src="/me.png"
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-0 right-0 max-w-none object-contain object-bottom transition-transform duration-700 ease-out scale-[1.12] origin-bottom-right"
+            className="pointer-events-none absolute max-w-none object-contain object-bottom transition-transform duration-700 ease-out"
             style={{
-              width: '263.15%',
-              height: '206.18%',
-              top: '0%',
-              left: '0%',
+              width: '320%',
+              height: '250%',
+              top: '-25%',
+              left: '-45%',
             }}
           />
         </div>
 
         {/* CARD 2: BOTTOM LEFT (bg-plum, rounded-20px) */}
         <div className="relative flex-1 overflow-hidden rounded-[18px] sm:rounded-[20px] bg-plum transition-transform duration-300 hover:scale-[1.01]">
-          {/* Puzzle Image Slice: Bottom-Left (Shifted UP synchronously) */}
+          {/* Puzzle Image Slice: Bottom-Left */}
           <img
             src="/me.png"
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-0 right-0 max-w-none object-contain object-bottom transition-transform duration-700 ease-out scale-[1.12] origin-bottom-right"
+            className="pointer-events-none absolute max-w-none object-contain object-bottom transition-transform duration-700 ease-out"
             style={{
-              width: '263.15%',
-              height: '206.18%',
-              top: '-106.18%',
-              left: '0%',
+              width: '320%',
+              height: '250%',
+              top: '-135%',
+              left: '-45%',
             }}
           />
         </div>
@@ -72,12 +72,12 @@ export function Portrait({ className = '', variant = 'puzzle' }: PortraitProps) 
         <img
           src="/me.png"
           alt={site.name}
-          className="absolute bottom-0 right-0 max-w-none object-contain object-bottom drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] transition-transform duration-700 ease-out scale-[1.12] origin-bottom-right"
+          className="pointer-events-none absolute max-w-none object-contain object-bottom drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] transition-transform duration-700 ease-out"
           style={{
-            width: '166.66%',
-            height: '100%',
-            top: '0%',
-            left: '-66.66%',
+            width: '196%',
+            height: '108%',
+            top: '-6%',
+            left: '-92%',
           }}
         />
       </div>

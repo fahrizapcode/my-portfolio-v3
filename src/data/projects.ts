@@ -47,7 +47,6 @@ export const projects: Project[] = [
       'Ethers.js v6',
       'Arbitrum Sepolia',
       'JWT Auth',
-      'Cyberpunk Glassmorphism UI',
     ],
     links: [
       { label: 'GitHub', href: 'https://github.com/fahrizapcode/xplover-research-protocol' },

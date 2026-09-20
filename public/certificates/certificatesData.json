@@ -15,6 +15,11 @@
     "category": "Soft Skill"
   },
   {
+    "title": "Engineering Department Intern Certificate",
+    "file": "/certificates/Engineering Department Training Certificate - Yello Hotels Paskal Bandung.png",
+    "category": "Soft Skill"
+  },
+  {
     "title": "Learning Back-End Fundamentals with JavaScript",
     "file": "/certificates/Learning Back-End Fundamentals with JavaScript - Dicoding.pdf",
     "category": "Hard Skill"
@@ -102,11 +107,6 @@
   {
     "title": "Test of English for Academics (Score 500)",
     "file": "/certificates/Test of English for Academics (500) - Language Center.png",
-    "category": "Soft Skill"
-  },
-  {
-    "title": "Engineering Department Training Certificate",
-    "file": "/certificates/Engineering Department Training Certificate - Yello Hotels Paskal Bandung.png",
     "category": "Soft Skill"
   }
 ]

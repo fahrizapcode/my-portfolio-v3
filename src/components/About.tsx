@@ -24,7 +24,7 @@ export function About() {
             </h2>
             <p className="mt-5 text-[17px] leading-relaxed text-ink/80">
               I'm {site.name}, an Informatics student and full-stack developer
-              based in Bandung. I enjoy turning ideas into functional products —
+              based in Bandung. I enjoy turning ideas into functional products
               from interface design and frontend development to backend systems
               and Web3 integrations.
             </p>

@@ -109,7 +109,17 @@ export function ProjectCard({
             <p className="text-[11px] tracking-wide text-muted">{project.type}</p>
           </div>
 
-          <h3 className="mt-2 font-serif text-[28px] leading-[1.05] tracking-tight sm:mt-4 sm:text-[48px]">
+          {project.logo && (
+            <div className="mt-3 sm:mt-4 flex items-center">
+              <img
+                src={project.logo}
+                alt={`${project.name} logo`}
+                className="h-9 sm:h-12 w-auto max-w-[160px] sm:max-w-[200px] object-contain object-left"
+              />
+            </div>
+          )}
+
+          <h3 className="mt-2 font-serif text-[28px] leading-[1.05] tracking-tight sm:mt-3 sm:text-[48px]">
             {project.name}
           </h3>
 

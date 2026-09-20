@@ -6,6 +6,7 @@ export type ProjectLink = {
 export type Project = {
   slug: string
   number: string
+  logo?: string
   name: string
   type: string
   summary: string
@@ -29,6 +30,7 @@ export const projects: Project[] = [
   {
     slug: 'xplover',
     number: '01',
+    logo: '/project-logo/xolover.png',
     name: 'Xplover Research Protocol',
     type: 'Web3 DeSci Fullstack Product',
     summary:
@@ -98,6 +100,7 @@ export const projects: Project[] = [
   {
     slug: 'bandung-verse',
     number: '02',
+    logo: '/project-logo/bandung-verse.png',
     name: 'BandungVerse',
     type: 'UI/UX Design',
     summary:
@@ -154,6 +157,7 @@ export const projects: Project[] = [
   {
     slug: 'if-collab',
     number: '03',
+    logo: '/project-logo/if-collab.png',
     name: 'IF-Collab',
     type: 'Fullstack Project Management Platform',
     summary:
@@ -214,6 +218,7 @@ export const projects: Project[] = [
   {
     slug: 'student-walker',
     number: '04',
+    logo: '/project-logo/student-walker.png',
     name: 'Student Walker',
     type: 'Mobile Web App',
     summary:

@@ -121,6 +121,15 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
         <p className="mt-10 font-mono text-[11px] tracking-widest text-muted">
           {project.number} · {project.type}
         </p>
+        {project.logo && (
+          <div className="mt-4 flex items-center">
+            <img
+              src={project.logo}
+              alt={`${project.name} logo`}
+              className="h-10 sm:h-14 w-auto max-w-[220px] object-contain object-left"
+            />
+          </div>
+        )}
         <h1 className="mt-3 font-serif text-5xl tracking-tight md:text-[72px] md:leading-[0.92]">
           {project.name}
         </h1>

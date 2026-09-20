@@ -57,12 +57,12 @@ export function ProjectCard({
         <CornerMark />
         {project.screenshots && project.screenshots.length > 0 ? (
           portrait ? (
-            /* Mobile project: 4 screenshot hp, parent dipanjangin & screenshot ke-4 peek/kepotong */
-            <div className="flex h-full min-h-[260px] sm:min-h-[380px] w-full items-center justify-start gap-2.5 sm:gap-3.5 overflow-hidden rounded-[12px] bg-slate-100/80 p-3 sm:p-4 pl-3.5 sm:pl-5">
-              {project.screenshots.slice(0, 4).map((src, i) => (
+            /* Mobile project: 3 screenshot hp melayang sejajar & presisi */
+            <div className="flex h-full min-h-[240px] sm:min-h-[360px] w-full items-center justify-center gap-3 sm:gap-5 overflow-hidden rounded-[12px] bg-slate-100/80 p-3 sm:p-5">
+              {project.screenshots.slice(0, 3).map((src, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center shrink-0 w-[31%] sm:w-[29%] h-[95%] aspect-[9/19] overflow-hidden rounded-[10px] sm:rounded-[14px] border border-black/10 shadow-md bg-white transition-transform duration-300 group-hover:scale-[1.03]"
+                  className="flex items-center justify-center flex-1 max-w-[28%] sm:max-w-[29%] h-[92%] aspect-[9/19] overflow-hidden rounded-[10px] sm:rounded-[14px] border border-black/10 shadow-md bg-white transition-transform duration-300 group-hover:scale-[1.03]"
                 >
                   <img
                     src={src}

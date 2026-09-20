@@ -57,17 +57,17 @@ export function ProjectCard({
         <CornerMark />
         {project.screenshots && project.screenshots.length > 0 ? (
           portrait ? (
-            /* Mobile project: 3 screenshot hp melayang, utuh tanpa terpotong, dan presisi di tengah (centered) */
+            /* Mobile project: 3 screenshot hp melayang, 100% presisi seukuran tingginya & sejajar */
             <div className="flex h-full min-h-[240px] sm:min-h-[360px] w-full items-center justify-center gap-2 sm:gap-3.5 overflow-hidden rounded-[12px] bg-slate-100/80 p-3 sm:p-5">
               {project.screenshots.slice(0, 3).map((src, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center flex-1 max-w-[26%] h-full max-h-[86%] transition-transform duration-300 group-hover:scale-[1.03]"
+                  className="flex items-center justify-center flex-1 max-w-[27%] h-[88%] aspect-[9/19] overflow-hidden rounded-[10px] sm:rounded-[14px] border border-black/10 shadow-md bg-white transition-transform duration-300 group-hover:scale-[1.03]"
                 >
                   <img
                     src={src}
                     alt={`${project.name} screenshot ${i + 1}`}
-                    className="max-h-full w-full object-contain rounded-[12px] sm:rounded-[16px] border border-black/10 shadow-md bg-white"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
               ))}

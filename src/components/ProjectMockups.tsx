@@ -377,6 +377,5 @@ export function ProjectMockup({
 export function featuredMockupId(slug: string) {
   if (slug === 'if-collab') return 'kanban'
   if (slug === 'xplover') return 'research'
-  if (slug === 'yuk-mari') return 'public'
   return 'map'
 }

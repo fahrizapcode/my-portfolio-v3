@@ -212,52 +212,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'yuk-mari',
-    number: '04',
-    name: 'Yuk-Mari',
-    type: 'Web platform + admin',
-    summary:
-      'A digital platform combining a public-facing website with an administrative system for managing content and data.',
-    stack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'ImageKit'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/fahrizapcode/yuk-mari' },
-      { label: 'Live Demo', href: 'https://yuk-mari.example.com' },
-      { label: 'Case Study', href: '/work/yuk-mari' },
-    ],
-    accent: 'gold',
-    overview:
-      'Yuk-Mari is a two-sided web platform: a public site for visitors and an admin system for people who manage content and records. The work is about CRUD architecture, media handling, and keeping public pages in sync with editorial data.',
-    problem:
-      'Public content was awkward to update without touching code. Editors needed a reliable way to create, update, and retire content, including images, while the public site stayed fast and consistent.',
-    solution:
-      'I built a React public frontend, an Express API, and PostgreSQL as the source of truth. ImageKit handles media. The admin dashboard exposes the same data model as structured forms rather than a generic CMS dump.',
-    architecture: [
-      {
-        title: 'System',
-        nodes: ['React (public + admin)', 'Express API', 'PostgreSQL'],
-      },
-      {
-        title: 'Media',
-        nodes: ['Admin upload', 'ImageKit', 'Public pages'],
-      },
-    ],
-    challenges: [
-      'Sharing one data model between public pages and admin CRUD without duplicating business rules.',
-      'Keeping image uploads out of the app server while still attaching media to records cleanly.',
-      'Making the admin usable for non-developers without hiding important fields.',
-    ],
-    outcome:
-      'A complete content loop: API-backed CRUD, an admin dashboard, and a public site that reads the same store. Dummy dataset in this portfolio stands in for production records.',
-    mockups: [
-      { id: 'public', label: 'Public website' },
-      { id: 'admin', label: 'Admin dashboard' },
-      { id: 'form', label: 'Content form' },
-      { id: 'api', label: 'API-oriented list' },
-    ],
-  },
-  {
     slug: 'student-walker',
-    number: '05',
+    number: '04',
     name: 'Student Walker',
     type: 'Mobile Web App',
     summary:

@@ -48,7 +48,7 @@ export const projects: Project[] = [
       'Cyberpunk Glassmorphism UI',
     ],
     links: [
-      { label: 'GitHub', href: 'https://github.com/fahrizapcode/xplover' },
+      { label: 'GitHub', href: 'https://github.com/fahrizapcode/xplover-research-protocol' },
       { label: 'Live Demo', href: 'https://xplover.example.com' },
       { label: 'Case Study', href: '/work/xplover' },
     ],
@@ -113,6 +113,7 @@ export const projects: Project[] = [
       'User Flow',
     ],
     links: [
+      { label: 'Figma', href: 'https://www.figma.com/design/mLSMrfsZnbLyMfvRrTV5ue/Projeg?node-id=0-1&p=f&t=b14xXrTWbSwUUZnV-0' },
       { label: 'Case Study', href: '/work/bandung-verse' },
     ],
     accent: 'lavender',
@@ -172,7 +173,7 @@ export const projects: Project[] = [
       'Tailwind CSS v4',
     ],
     links: [
-      { label: 'GitHub', href: 'https://github.com/fahrizapcode/if-collab' },
+      { label: 'GitHub', href: 'https://github.com/yazidzky/if-collab-fe' },
       { label: 'Live Demo', href: 'https://if-collab.example.com' },
       { label: 'Case Study', href: '/work/if-collab' },
     ],
@@ -270,7 +271,7 @@ export const projects: Project[] = [
       'Mobile-First Responsive Design',
     ],
     links: [
-      { label: 'GitHub', href: 'https://github.com/fahrizapcode/student-walker' },
+      { label: 'GitHub', href: 'https://github.com/yazidzky/stukerApp' },
       { label: 'Case Study', href: '/work/student-walker' },
     ],
     accent: 'lavender',

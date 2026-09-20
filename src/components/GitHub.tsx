@@ -89,7 +89,7 @@ export function GitHub() {
           {githubRepos.map((repo) => (
             <li key={repo.name}>
               <a
-                href={`${site.github}/${repo.name}`}
+                href={repo.url || `${site.github}/${repo.name}`}
                 target="_blank"
                 rel="noreferrer"
                 className="block h-full rounded-[24px] border border-line bg-paper p-5 transition-transform hover:scale-[1.015]"

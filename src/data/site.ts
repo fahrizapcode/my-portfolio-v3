@@ -118,22 +118,25 @@ export const education = [
 
 export const githubRepos = [
   {
-    name: 'xplover',
+    name: 'xplover-research-protocol',
     description: 'DeSci knowledge workflows with Ethereum incentives and IPFS storage.',
     stack: 'React · Solidity',
     updated: 'Updated last month',
+    url: 'https://github.com/fahrizapcode/xplover-research-protocol',
   },
   {
-    name: 'if-collab',
+    name: 'if-collab-fe',
     description: 'Collaborative boards, tasks, and team workflows for Informatics students.',
     stack: 'Next.js · TypeScript',
     updated: 'Updated 2 weeks ago',
+    url: 'https://github.com/yazidzky/if-collab-fe',
   },
   {
-    name: 'yuk-mari',
-    description: 'Public site plus admin CMS with Express and PostgreSQL.',
-    stack: 'React · Node.js',
+    name: 'stukerApp',
+    description: 'Mobile-first campus errand and delivery peer-to-peer platform.',
+    stack: 'Next.js · TypeScript',
     updated: 'Updated 3 months ago',
+    url: 'https://github.com/yazidzky/stukerApp',
   },
 ]
 

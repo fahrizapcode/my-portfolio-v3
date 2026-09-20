@@ -46,27 +46,25 @@ export function ProjectCard({
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[180px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] ${
-          portrait ? 'lg:col-span-4' : 'lg:col-span-7'
+        className={`group relative min-h-[200px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] sm:min-h-[360px] ${
+          portrait ? 'lg:col-span-6' : 'lg:col-span-7'
         } ${
           project.screenshots && project.screenshots.length > 0
-            ? 'bg-white border border-gray-200 p-1.5'
+            ? 'bg-white border border-gray-200/80 p-1.5'
             : `${accentBg[project.accent]} p-3`
         } ${reverse ? 'lg:order-2' : ''}`}
       >
         <CornerMark />
         {project.screenshots && project.screenshots.length > 0 ? (
           portrait ? (
-            /* Mobile project: tampilkan 3 screenshot berjajar */
-            <div className="flex h-full min-h-[180px] sm:min-h-[360px] w-full items-end justify-center gap-2 overflow-hidden rounded-[12px] bg-gray-50 px-3 pb-0 pt-4">
+            /* Mobile project: tampilkan 3 screenshot berjajar dan sejajar dengan tinggi seragam */
+            <div className="flex h-full min-h-[220px] sm:min-h-[360px] w-full items-end justify-center gap-2.5 sm:gap-4 overflow-hidden rounded-[12px] bg-gradient-to-b from-gray-50 to-gray-100/70 px-4 sm:px-6 pb-0 pt-5">
               {project.screenshots.slice(0, 3).map((src, i) => (
                 <img
                   key={i}
                   src={src}
                   alt={`${project.name} screenshot ${i + 1}`}
-                  className={`w-1/3 rounded-t-[10px] object-cover object-top border border-gray-200 shadow-sm flex-shrink-0 ${
-                    i === 1 ? 'h-[85%]' : 'h-[75%]'
-                  }`}
+                  className="h-[88%] w-[30%] sm:w-[28%] max-w-[140px] rounded-t-[12px] object-cover object-top border border-gray-200/90 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1"
                 />
               ))}
             </div>
@@ -94,7 +92,7 @@ export function ProjectCard({
       {/* Info panel */}
       <div
         className={`flex flex-col justify-between rounded-[16px] p-4 sm:p-8 ${
-          portrait ? 'lg:col-span-8' : 'lg:col-span-5'
+          portrait ? 'lg:col-span-6' : 'lg:col-span-5'
         } ${accentInfoBg[project.accent]} ${
           reverse ? 'lg:order-1' : ''
         }`}

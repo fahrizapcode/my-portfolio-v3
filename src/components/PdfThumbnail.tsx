@@ -27,7 +27,7 @@ export function PdfThumbnail({ url, className = '' }: { url: string; className?:
         const page = await pdf.getPage(1)
         if (!isMounted) return
 
-        const viewport = page.getViewport({ scale: 1.5 })
+        const viewport = page.getViewport({ scale: 2.0 })
         const canvas = canvasRef.current
         if (!canvas) return
         
@@ -69,7 +69,7 @@ export function PdfThumbnail({ url, className = '' }: { url: string; className?:
   }, [url])
 
   return (
-    <div className={`relative w-full h-full ${className}`}>
+    <div className={`relative flex items-center justify-center overflow-hidden ${className}`}>
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-ink/5">
           <div className="size-6 animate-spin rounded-full border-2 border-ink/20 border-t-ink/60" />
@@ -82,7 +82,7 @@ export function PdfThumbnail({ url, className = '' }: { url: string; className?:
       )}
       <canvas
         ref={canvasRef}
-        className={`w-full h-full object-contain ${loading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        className={`max-h-full max-w-full object-contain ${loading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
       />
     </div>
   )

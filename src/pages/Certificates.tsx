@@ -52,64 +52,57 @@ function CertModal({
   const isPdf = isPdfFile(cert.file)
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-night/80 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-night/80 p-3 sm:p-4 backdrop-blur-md"
       onClick={onClose}
     >
       <div
-        className={`relative overflow-hidden rounded-[24px] bg-paper shadow-2xl ${
-          isPdf ? 'w-full max-w-4xl' : 'max-h-[90vh] max-w-4xl'
-        }`}
+        className="relative flex flex-col max-h-[90vh] w-full max-w-4xl overflow-hidden rounded-[20px] sm:rounded-[24px] bg-paper shadow-2xl p-3 sm:p-5"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-night/70 text-cream transition-opacity hover:opacity-80"
+          className="absolute right-4 top-4 z-20 flex size-8 items-center justify-center rounded-full bg-night/70 text-cream transition-opacity hover:opacity-80"
           aria-label="Close certificate viewer"
         >
           ✕
         </button>
 
-        {isPdf ? (
-          <div className="flex flex-col">
-            <iframe
-              src={cert.file}
-              title={cert.title}
-              className="w-full border-0"
-              style={{ height: '75vh' }}
+        {/* Certificate Display Area (PDF or Image) */}
+        <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[16px] bg-black/5 p-2 sm:p-3">
+          {isPdf ? (
+            <PdfThumbnail
+              url={cert.file}
+              className="h-[55vh] sm:h-[68vh] w-full"
             />
-            <div className="flex items-center justify-between gap-3 px-6 py-4">
-              <div>
-                <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}>
-                  {cert.category}
-                </span>
-                <h3 className="mt-1.5 font-serif text-xl text-ink">{cert.title}</h3>
-              </div>
-              <a
-                href={cert.file}
-                target="_blank"
-                rel="noreferrer"
-                className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-full border border-ink/20 px-4 py-2 text-xs text-ink transition-opacity hover:opacity-60"
-              >
-                Open PDF
-                <ArrowIcon className="size-3" />
-              </a>
-            </div>
-          </div>
-        ) : (
-          <div className="p-2 sm:p-4">
+          ) : (
             <img
               src={cert.file}
               alt={cert.title}
-              className="max-h-[75vh] w-full object-contain rounded-[16px]"
+              className="max-h-[55vh] sm:max-h-[68vh] w-full object-contain rounded-[12px]"
             />
-            <div className="mt-4 p-2 text-center">
-              <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}>
-                {cert.category}
-              </span>
-              <h3 className="mt-1.5 font-serif text-2xl text-ink">{cert.title}</h3>
-            </div>
+          )}
+        </div>
+
+        {/* Certificate Metadata & Open Link */}
+        <div className="mt-3 flex items-center justify-between gap-3 px-1 sm:px-2">
+          <div>
+            <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ${CATEGORY_PILL[cert.category]}`}>
+              {cert.category}
+            </span>
+            <h3 className="mt-1 font-serif text-lg sm:text-2xl text-ink leading-snug">{cert.title}</h3>
           </div>
-        )}
+          {isPdf && (
+            <a
+              href={cert.file}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-full border border-ink/20 px-3.5 py-2 text-xs font-medium text-ink transition-opacity hover:opacity-60"
+            >
+              Open Original PDF
+              <ArrowIcon className="size-3" />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

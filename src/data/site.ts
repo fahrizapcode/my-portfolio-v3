@@ -2,10 +2,12 @@ export const site = {
   name: 'Fahriza Pratama',
   role: 'Informatics student & full-stack developer',
   city: 'Bandung, Indonesia',
-  email: 'hello@fahriza.dev',
-  github: 'https://github.com/fahriza',
-  githubHandle: 'fahriza',
-  linkedin: 'https://linkedin.com/in/fahriza',
+  email: 'fahrizapcode@gmail.com',
+  github: 'https://github.com/fahrizapcode',
+  githubHandle: 'fahrizapcode',
+  linkedin: 'https://www.linkedin.com/in/mohammad-fahriza-pratama-9355652a7',
+  instagram: 'https://instagram.com/fahrizap33',
+  instagramHandle: 'fahrizap33',
   availability: 'Open to freelance & collaboration',
 }
 
@@ -25,34 +27,81 @@ export const skills = {
   Tools: ['Git', 'GitHub', 'Figma', 'Docker'],
 }
 
-export const experience = [
+export type ExperienceItem = {
+  period: string
+  org: string
+  role: string
+  location?: string
+  type?: string
+  detail: string
+  highlights?: string[]
+  skills?: string[]
+}
+
+export const experience: ExperienceItem[] = [
   {
-    period: '2024 — Present',
-    org: 'Dimensi Web — Learning Arena',
-    role: 'Head of Learning Division',
-    detail:
-      'Led the learning division responsible for planning and delivering web development learning sessions covering HTML, CSS, JavaScript, Tailwind CSS, and React.',
+    period: 'Jun 2026 — Jul 2026',
+    org: 'Blockdev.id',
+    role: 'Blockchain Builder Fellow',
+    location: 'Bandung, Jawa Barat, Indonesia',
+    type: 'Fellowship',
+    detail: 'Focused on blockchain development, Ethereum smart contracts, and Web3 ecosystem architecture.',
+    skills: ['Blockchain', 'Ethereum', 'Web3'],
   },
   {
-    period: '2023 — Present',
-    org: 'Independent product work',
-    role: 'Full-stack development',
-    detail:
-      'Built project-based web products across frontend, APIs, and databases — including collaborative tools, content platforms, and admin systems.',
+    period: 'Feb 2026 — Jun 2026',
+    org: 'Coding Camp powered by DBS Foundation',
+    role: 'Fullstack Web Developer Cohort',
+    location: 'Jakarta Raya, Indonesia · Remote',
+    type: 'Full-time',
+    detail: 'Intensive fullstack web development cohort program powered by DBS Foundation & Dicoding, building scalable web applications and mastering modern web development practices.',
+    skills: ['Fullstack Web Development', 'React', 'Node.js', 'JavaScript'],
   },
   {
-    period: '2024 — Present',
-    org: 'Research & Web3',
-    role: 'Applied blockchain development',
-    detail:
-      'Explored decentralized workflows, smart contracts, and IPFS as part of research-oriented product experiments such as Xplover.',
+    period: 'Nov 2025 — Feb 2026',
+    org: 'Self Employed',
+    role: 'Freelance Web Developer',
+    location: 'Bandung, Jawa Barat, Indonesia · Hybrid',
+    type: 'Part-time',
+    detail: 'Delivered end-to-end web development solutions for startup and academic clients, covering system design, backend development, and frontend implementation.',
+    highlights: [
+      'Education Institution Affiliate Feature (Startup Project): Developed an affiliate system end-to-end including admin dashboard, backend APIs, and public-facing frontend. Tech Stack: PHP, Express.js, TypeScript, React.js, Tailwind CSS, PostgreSQL.',
+      'Braille Simulation Website (Psychology Dept Client): Built an interactive Braille simulation website for academic competition purposes using Next.js, TypeScript, and Tailwind CSS.',
+    ],
+    skills: ['PHP', 'Express.js', 'TypeScript', 'React.js', 'Next.js', 'Tailwind CSS', 'PostgreSQL'],
   },
   {
-    period: 'Ongoing',
-    org: 'Team collaboration',
-    role: 'Product & engineering',
-    detail:
-      'Worked with peers on shared codebases, role-based features, and shipping usable interfaces rather than isolated demos.',
+    period: 'Des 2025',
+    org: 'Badan Semi Otonom Dimensi Web (2025/2026)',
+    role: 'Head of Competency Development',
+    location: 'Bandung, Jawa Barat, Indonesia · Hybrid',
+    type: 'Part-time',
+    detail: 'Designed and implemented a web-based scoring and leaderboard system to monitor user progress. Developed structured learning materials for beginner, intermediate, and advanced web development levels, alongside final exam tutoring and targeted mentoring sessions.',
+    skills: ['Curriculum Design', 'Scoring & Leaderboard System', 'Web Development', 'Mentoring'],
+  },
+  {
+    period: 'Okt 2022 — Feb 2025',
+    org: 'SGD Robotic Competition & Campus Events',
+    role: 'Logistics & Event Operations Division',
+    location: 'Bandung, Jawa Barat, Indonesia · Hybrid',
+    type: 'Part-time',
+    detail: 'Experienced in logistics and equipment management across multiple university and school events. Responsible for event operations, equipment readiness, inventory control, and cross-division communication.',
+    highlights: [
+      'Head of Logistics Division – IT Fair (Jan–Mar 2024)',
+      'Head of Logistics Division – Monitor Informatics Orientation Program (Sep–Oct 2024)',
+      'Logistics Team Member – SGD Robotic Competition 2024 (Dec 2024–Feb 2025)',
+      'Equipment Coordinator – PLC Panel Extracurricular (Electrical Installation Competition) SMKN 4 Bandung (Oct 2022)',
+    ],
+    skills: ['Logistics Management', 'Event Operations', 'Inventory Control', 'Cross-Division Leadership'],
+  },
+  {
+    period: 'Apr 2022 — Agu 2022',
+    org: 'Yello Hotel Paskal Bandung',
+    role: 'Engineering Department Intern',
+    location: 'Bandung, Jawa Barat, Indonesia · On-site',
+    type: 'Internship',
+    detail: 'Participated in an on-the-job training program within the hotel’s Engineering Department. Gained hands-on experience in facility maintenance, water distribution systems, chiller repair, and technical operations in a professional hospitality setting.',
+    skills: ['Facility Maintenance', 'Water Distribution', 'Chiller Repair', 'Technical Operations'],
   },
 ]
 

@@ -1,5 +1,5 @@
 import { site } from '../data/site'
-import { GitHubIcon } from './icons'
+import { GitHubIcon, InstagramIcon, LinkedInIcon } from './icons'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -34,9 +34,19 @@ export function Footer() {
             href={site.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="text-xs text-muted transition-colors hover:text-ink"
+            className="text-muted transition-colors hover:text-ink"
+            aria-label="LinkedIn"
           >
-            LinkedIn
+            <LinkedInIcon className="size-4" />
+          </a>
+          <a
+            href={site.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="text-muted transition-colors hover:text-ink"
+            aria-label="Instagram"
+          >
+            <InstagramIcon className="size-4" />
           </a>
         </nav>
       </div>

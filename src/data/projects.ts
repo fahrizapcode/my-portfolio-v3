@@ -48,7 +48,7 @@ export const projects: Project[] = [
       'Cyberpunk Glassmorphism UI',
     ],
     links: [
-      { label: 'GitHub', href: 'https://github.com/fahriza/xplover' },
+      { label: 'GitHub', href: 'https://github.com/fahrizapcode/xplover' },
       { label: 'Live Demo', href: 'https://xplover.example.com' },
       { label: 'Case Study', href: '/work/xplover' },
     ],
@@ -172,7 +172,7 @@ export const projects: Project[] = [
       'Tailwind CSS v4',
     ],
     links: [
-      { label: 'GitHub', href: 'https://github.com/fahriza/if-collab' },
+      { label: 'GitHub', href: 'https://github.com/fahrizapcode/if-collab' },
       { label: 'Live Demo', href: 'https://if-collab.example.com' },
       { label: 'Case Study', href: '/work/if-collab' },
     ],
@@ -219,7 +219,7 @@ export const projects: Project[] = [
       'A digital platform combining a public-facing website with an administrative system for managing content and data.',
     stack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'ImageKit'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/fahriza/yuk-mari' },
+      { label: 'GitHub', href: 'https://github.com/fahrizapcode/yuk-mari' },
       { label: 'Live Demo', href: 'https://yuk-mari.example.com' },
       { label: 'Case Study', href: '/work/yuk-mari' },
     ],
@@ -270,7 +270,7 @@ export const projects: Project[] = [
       'Mobile-First Responsive Design',
     ],
     links: [
-      { label: 'GitHub', href: 'https://github.com/fahriza/student-walker' },
+      { label: 'GitHub', href: 'https://github.com/fahrizapcode/student-walker' },
       { label: 'Case Study', href: '/work/student-walker' },
     ],
     accent: 'lavender',

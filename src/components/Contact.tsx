@@ -1,5 +1,5 @@
 import { site } from '../data/site'
-import { GitHubIcon, MailIcon } from './icons'
+import { GitHubIcon, InstagramIcon, LinkedInIcon, MailIcon } from './icons'
 
 export function Contact() {
   return (
@@ -45,7 +45,17 @@ export function Contact() {
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm text-cream transition-colors hover:border-white/30"
           >
+            <LinkedInIcon className="size-4" />
             LinkedIn
+          </a>
+          <a
+            href={site.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm text-cream transition-colors hover:border-white/30"
+          >
+            <InstagramIcon className="size-4" />
+            Instagram
           </a>
         </div>
       </div>

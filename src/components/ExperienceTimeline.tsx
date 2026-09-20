@@ -12,7 +12,7 @@ export function ExperienceTimeline() {
             Background
           </p>
           <h2 className="mt-2 font-serif text-4xl tracking-tight sm:text-5xl">
-            Experience & Activities
+            Experience &amp; Activities
           </h2>
         </div>
 
@@ -25,29 +25,65 @@ export function ExperienceTimeline() {
 
           {experience.map((item, index) => (
             <li
-              key={item.org}
-              className={`relative grid gap-2 py-6 pl-5 md:pl-10 md:grid-cols-[200px_1fr] md:gap-12 ${
+              key={`${item.org}-${index}`}
+              className={`relative grid gap-2 py-6 pl-5 md:pl-10 md:grid-cols-[220px_1fr] md:gap-10 ${
                 index !== experience.length - 1 ? 'border-b border-ink/10' : ''
               }`}
             >
-              {/* Timeline dot — plain, aligned with period text */}
+              {/* Timeline dot */}
               <div
-                className="absolute left-[-3.5px] top-[27px] size-2 rounded-full bg-ink/50"
+                className="absolute left-[-3.5px] top-[29px] size-2 rounded-full bg-ink/50"
                 aria-hidden="true"
               />
 
-              <div className="flex items-start gap-3 md:flex-col md:gap-1">
+              <div className="flex flex-col gap-1">
                 <p className="font-sans text-xs font-semibold tracking-wide text-muted shrink-0">
                   {item.period}
                 </p>
+                {item.location && (
+                  <p className="text-[11px] leading-tight text-muted/70 font-sans">
+                    {item.location}
+                  </p>
+                )}
               </div>
 
               <div>
-                <p className="text-[17px] text-ink">{item.org}</p>
-                <p className="mt-0.5 text-sm text-muted">{item.role}</p>
-                <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink/70">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-lg font-medium text-ink">{item.role}</h3>
+                  {item.type && (
+                    <span className="rounded-full bg-ink/5 border border-ink/10 px-2.5 py-0.5 text-[11px] font-medium text-ink/70">
+                      {item.type}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-0.5 text-sm font-semibold text-muted">{item.org}</p>
+
+                <p className="mt-2.5 max-w-3xl text-[15px] leading-relaxed text-ink/80">
                   {item.detail}
                 </p>
+
+                {item.highlights && item.highlights.length > 0 && (
+                  <ul className="mt-3 space-y-1.5 pl-4 list-disc text-sm text-ink/75 max-w-3xl">
+                    {item.highlights.map((hl, i) => (
+                      <li key={i} className="leading-relaxed">
+                        {hl}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {item.skills && item.skills.length > 0 && (
+                  <div className="mt-3.5 flex flex-wrap gap-1.5">
+                    {item.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-md bg-ink/5 px-2 py-0.5 text-[11px] font-medium text-ink/70"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </li>
           ))}

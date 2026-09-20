@@ -19,24 +19,24 @@ export function ExperienceTimeline() {
         <ol className="relative space-y-0" data-reveal>
           {/* Vertical timeline line */}
           <div
-            className="absolute left-0 top-0 h-full w-px bg-ink/15 md:left-0"
+            className="absolute left-[3.5px] top-7 bottom-7 w-px bg-ink/15"
             aria-hidden="true"
           />
 
           {experience.map((item, index) => (
             <li
               key={`${item.org}-${index}`}
-              className={`relative grid gap-2 py-6 pl-5 md:pl-10 md:grid-cols-[220px_1fr] md:gap-10 ${
+              className={`relative grid gap-2 py-6 pl-6 md:pl-10 md:grid-cols-[220px_1fr] md:gap-10 ${
                 index !== experience.length - 1 ? 'border-b border-ink/10' : ''
               }`}
             >
-              {/* Timeline dot */}
+              {/* Timeline dot - precisely centered with title line baseline */}
               <div
-                className="absolute left-[-3.5px] top-[29px] size-2 rounded-full bg-ink/50"
+                className="absolute left-[-1px] top-[33px] size-2.5 rounded-full bg-ink/70 ring-4 ring-paper"
                 aria-hidden="true"
               />
 
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 pt-1">
                 <p className="font-sans text-xs font-semibold tracking-wide text-muted shrink-0">
                   {item.period}
                 </p>
@@ -49,7 +49,7 @@ export function ExperienceTimeline() {
 
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-medium text-ink">{item.role}</h3>
+                  <h3 className="text-lg font-medium text-ink leading-snug">{item.role}</h3>
                   {item.type && (
                     <span className="rounded-full bg-ink/5 border border-ink/10 px-2.5 py-0.5 text-[11px] font-medium text-ink/70">
                       {item.type}

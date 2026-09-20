@@ -2,16 +2,11 @@ import { site } from '../data/site'
 import { GitHubIcon, InstagramIcon, LinkedInIcon } from './icons'
 
 export function Footer() {
-  const year = new Date().getFullYear()
-
   return (
     <footer className="border-t border-line px-4 py-8 md:px-6 md:py-10">
       <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <span className="font-serif text-base text-ink">{site.name}</span>
-          <span className="font-mono text-xs text-muted">
-            © {year}
-          </span>
         </div>
 
         <nav className="flex items-center gap-5" aria-label="Footer navigation">

@@ -6,7 +6,10 @@ export function Footer() {
     <footer className="border-t border-line px-3 py-8 sm:px-4 md:px-6 md:py-10">
       <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-6">
-          <span className="font-serif text-base text-ink">{site.name}</span>
+          <span className="inline-flex items-center gap-2 font-serif text-base text-ink">
+            <img src="/me-logo.svg" alt="Logo" className="h-5 w-auto object-contain opacity-85" />
+            <span>{site.name}</span>
+          </span>
         </div>
 
         <nav className="flex items-center gap-5" aria-label="Footer navigation">

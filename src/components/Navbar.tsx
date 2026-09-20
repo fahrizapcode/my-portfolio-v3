@@ -29,10 +29,11 @@ export function Navbar() {
       <div className="mx-auto flex max-w-[1280px] items-center justify-between py-3">
         <Link
           to="/"
-          className="font-serif text-xl tracking-tight text-ink transition-opacity hover:opacity-70"
+          className="inline-flex items-center gap-2.5 font-serif text-xl tracking-tight text-ink transition-opacity hover:opacity-70"
           onClick={() => setOpen(false)}
         >
-          {site.name}
+          <img src="/me-logo.svg" alt="Logo" className="h-6 w-auto object-contain" />
+          <span>{site.name}</span>
         </Link>
 
         {/* Desktop nav */}

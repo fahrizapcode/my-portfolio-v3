@@ -46,23 +46,23 @@ export function ProjectCard({
       {/* Mockup panel */}
       <Link
         to={`/work/${project.slug}`}
-        className={`group relative min-h-[200px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] ${
-          portrait ? 'lg:col-span-6' : 'lg:col-span-7'
+        className={`group relative min-h-[220px] sm:min-h-[380px] overflow-hidden rounded-[16px] transition-transform duration-300 hover:scale-[1.015] ${
+          portrait ? 'lg:col-span-7' : 'lg:col-span-7'
         } ${
           project.screenshots && project.screenshots.length > 0
-            ? portrait ? 'bg-white border border-gray-200/80 p-1' : 'bg-white border border-gray-200/80 p-1.5'
+            ? 'bg-white border border-gray-200/80 p-1.5'
             : `${accentBg[project.accent]} p-3`
         } ${reverse ? 'lg:order-2' : ''}`}
       >
         <CornerMark />
         {project.screenshots && project.screenshots.length > 0 ? (
           portrait ? (
-            /* Mobile project: 3 screenshot hp melayang, max coverage & minimal padding */
-            <div className="flex h-full min-h-[240px] sm:min-h-[360px] w-full items-center justify-center gap-1.5 sm:gap-2 overflow-hidden rounded-[12px] bg-slate-100/80 p-1 sm:p-1.5">
-              {project.screenshots.slice(0, 3).map((src, i) => (
+            /* Mobile project: 4 screenshot hp, parent dipanjangin & screenshot ke-4 peek/kepotong */
+            <div className="flex h-full min-h-[260px] sm:min-h-[380px] w-full items-center justify-start gap-2.5 sm:gap-3.5 overflow-hidden rounded-[12px] bg-slate-100/80 p-3 sm:p-4 pl-3.5 sm:pl-5">
+              {project.screenshots.slice(0, 4).map((src, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center flex-1 max-w-[31%] h-[97%] aspect-[9/19] overflow-hidden rounded-[10px] sm:rounded-[14px] border border-black/10 shadow-md bg-white transition-transform duration-300 group-hover:scale-[1.03]"
+                  className="flex items-center justify-center shrink-0 w-[31%] sm:w-[29%] h-[95%] aspect-[9/19] overflow-hidden rounded-[10px] sm:rounded-[14px] border border-black/10 shadow-md bg-white transition-transform duration-300 group-hover:scale-[1.03]"
                 >
                   <img
                     src={src}
@@ -96,7 +96,7 @@ export function ProjectCard({
       {/* Info panel */}
       <div
         className={`flex flex-col justify-between rounded-[16px] p-4 sm:p-8 ${
-          portrait ? 'lg:col-span-6' : 'lg:col-span-5'
+          portrait ? 'lg:col-span-5' : 'lg:col-span-5'
         } ${accentInfoBg[project.accent]} ${
           reverse ? 'lg:order-1' : ''
         }`}

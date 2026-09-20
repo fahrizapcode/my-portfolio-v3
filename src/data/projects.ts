@@ -158,7 +158,7 @@ export const projects: Project[] = [
     slug: 'if-collab',
     number: '03',
     logo: '/project-logo/if-collab.png',
-    name: 'IF-Collab',
+    name: 'Informatics Collaboration',
     type: 'Fullstack Project Management Platform',
     summary:
       'A full-stack collaborative project management platform built for students and academic teams, featuring real-time kanban boards, role-based access, task management, notifications, and team invitation workflows.',

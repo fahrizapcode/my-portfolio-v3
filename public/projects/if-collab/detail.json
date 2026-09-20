@@ -1,6 +1,6 @@
-﻿{
+{
     "id": "02 - Fullstack Project Management Platform",
-    "judul": "IF-Collab",
+    "judul": "Informatics Collaboration",
     "deskripsi": "A full-stack collaborative project management platform built for students and academic teams, featuring real-time kanban boards, role-based access, task management, notifications, and team invitation workflows.",
     "screenshots": [
         "/projects/if-collab/screenshots/Screenshot 2026-09-18 112853.png"

@@ -1,9 +1,25 @@
+import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
+
 export function Layout() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
+
+  // Always scroll to top when changing route (unless navigating to an anchor hash)
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '')
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+    }
+    // Scroll window to top immediately on page change
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+  }, [pathname, hash])
 
   // Re-run reveal observer whenever the route changes
   useScrollReveal()

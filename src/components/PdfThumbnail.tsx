@@ -40,6 +40,7 @@ export function PdfThumbnail({ url, className = '' }: { url: string; className?:
         const renderContext = {
           canvasContext: context,
           viewport: viewport,
+          canvas: canvas,
         }
 
         localRenderTask = page.render(renderContext)

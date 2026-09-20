@@ -57,15 +57,19 @@ export function ProjectCard({
         <CornerMark />
         {project.screenshots && project.screenshots.length > 0 ? (
           portrait ? (
-            /* Mobile project: tampilkan 3 screenshot berjajar dan sejajar dengan tinggi seragam */
-            <div className="flex h-full min-h-[220px] sm:min-h-[360px] w-full items-end justify-center gap-2.5 sm:gap-4 overflow-hidden rounded-[12px] bg-gradient-to-b from-gray-50 to-gray-100/70 px-4 sm:px-6 pb-0 pt-5">
+            /* Mobile project: 3 screenshot hp melayang, utuh tanpa terpotong, dan presisi di tengah (centered) */
+            <div className="flex h-full min-h-[240px] sm:min-h-[360px] w-full items-center justify-center gap-2 sm:gap-3.5 overflow-hidden rounded-[12px] bg-slate-100/80 p-3 sm:p-5">
               {project.screenshots.slice(0, 3).map((src, i) => (
-                <img
+                <div
                   key={i}
-                  src={src}
-                  alt={`${project.name} screenshot ${i + 1}`}
-                  className="h-[88%] w-[30%] sm:w-[28%] max-w-[140px] rounded-t-[12px] object-cover object-top border border-gray-200/90 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1"
-                />
+                  className="flex items-center justify-center flex-1 max-w-[31%] h-full max-h-[92%] transition-transform duration-300 group-hover:scale-[1.03]"
+                >
+                  <img
+                    src={src}
+                    alt={`${project.name} screenshot ${i + 1}`}
+                    className="max-h-full w-full object-contain rounded-[12px] sm:rounded-[16px] border border-black/10 shadow-md bg-white"
+                  />
+                </div>
               ))}
             </div>
           ) : (
